@@ -1,7 +1,8 @@
 import React from 'react';
 import configureStore from './store/store';
 import ReactDOM from 'react-dom';
-import {signup, login, logout} from './util/session_api_util';
+import Root from './components/root';
+import {signup, login, logout} from './actions/session_actions';
 
 window.signup = signup;
 window.login = login;
@@ -10,7 +11,7 @@ window.logout = logout;
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
   const store = configureStore();
-  ReactDOM.render(<h1>Welcome to Thunk</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
