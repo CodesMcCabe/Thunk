@@ -26,9 +26,6 @@ class Greeting extends React.Component {
       <nav className="top persistent">
         <h1 className="logo">Thunk</h1>
         <ul>
-          <li><a>Why Slack?</a></li>
-          <li><a>Pricing</a></li>
-          <li><a>About us</a></li>
           <li>{this.renderLoginHeader(this.props)}</li>
         </ul>
       </nav>

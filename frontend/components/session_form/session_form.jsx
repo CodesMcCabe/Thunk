@@ -104,12 +104,6 @@ class SessionForm extends React.Component {
                   full_width">
                   <span>
                     {this.renderFormHeader()}
-                    <i class="fa fa-arrow-right" aria-hidden="true">
-                      ::before
-                    </i>
-                    <i class="ts_icon ts_icon_arrow_large_right">
-
-                    </i>
                   </span>
                 </button>
               </p>
