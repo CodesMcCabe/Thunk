@@ -52,9 +52,9 @@ class SessionForm extends React.Component {
 
   renderFormHeader() {
     if (this.props.formType === 'login') {
-      return <h1>Sign in</h1>;
+      return "Sign in";
     } else {
-      return <h1>Sign up</h1>;
+      return "Sign up";
     }
   }
 
@@ -66,7 +66,7 @@ class SessionForm extends React.Component {
             span_4_of_6 col large_left_padding large_right_padding
             large_bottom_padding large_bottom_margin float_none margin_auto">
 
-            {this.renderFormHeader()}
+            <h1>{this.renderFormHeader()}</h1>
 
             {this.renderErrors()}
             <div class="col span_4_of_6 float_none margin_auto">
@@ -76,21 +76,37 @@ class SessionForm extends React.Component {
                 &
                 <strong> Password</strong>
               </p>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-field"
-                placeholder="Username"/>
+              <p class="domain_input no_bottom_margin">
+                <input type="text"
+                  id="domain"
+                  value={this.state.username}
+                  onChange={this.update('username')}
+                  className="login-field"
+                  placeholder="Username"
+                  autocomplete="off"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"/>
 
-              <input type="password"
-                value={this.state.password}
-                placeholder="Password"
-                onChange={this.update('password')}
-                className="login-field"/>
-
-              <button className="login-form-button button_large
-                small_top_margin full_width">
-              {this.renderFormHeader()}</button>
+                <input type="password"
+                  id="domain"
+                  value={this.state.password}
+                  placeholder="Password"
+                  onChange={this.update('password')}
+                  className="login-field"
+                  autocomplete="off"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"/>
+              </p>
+              <p class="large_bottom_margin">
+                <button className="login_form_button btn_large
+                  full_width">
+                  <span>
+                    {this.renderFormHeader()}
+                  </span>
+                </button>
+              </p>
             </div>
           </form>
         </div>
