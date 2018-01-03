@@ -4,10 +4,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import {signup, login, logout} from './actions/session_actions';
 
-window.signup = signup;
-window.login = login;
-window.logout = logout;
-
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
 
@@ -21,7 +17,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   ReactDOM.render(<Root store={store} />, root);
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
 });

@@ -1,0 +1,30 @@
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.login-form > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-form-button {
+  justify-content: center;
+  font-size: 10px;
+  background-color: green;
+  border-radius: 5px;
+}
+
+.login-field-username {
+  border-radius: 2px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.login-field-password {
+  border-radius: 2px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}

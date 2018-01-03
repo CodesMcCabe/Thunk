@@ -50,30 +50,35 @@ class SessionForm extends React.Component {
     };
   }
 
+  renderFormHeader() {
+    if (this.props.formType === 'login') {
+      return <h1>Sign in</h1>;
+    } else {
+      return <h1>Sign up</h1>;
+    }
+  }
+
   render() {
     return(
-      <div>
-        <br/>
-        <form onSubmit={this.handleSubmit}>
-          Welcome to Thunk!
-          <br/>
-          Please {this.props.formType} or {this.navLink()}
+      <div className="login-form-container">
+        <form onSubmit={this.handleSubmit} className="login-form">
+
+          {this.renderFormHeader()}
+
           {this.renderErrors()}
           <div>
-            <br/>
-            <label>Username:
               <input type="text"
                 value={this.state.username}
-                onChange={this.update('username')}/>
-            </label>
-            <br/>
-            <label>Password:
+                onChange={this.update('username')}
+                className="login-field-username"/>
+
               <input type="password"
                 value={this.state.password}
-                onChange={this.update('password')}/>
-            </label>
+                onChange={this.update('password')}
+                className="login-field-password"/>
 
-            <button>Submit</button>
+            <button className="login-form-button">
+              {this.renderFormHeader()}</button>
           </div>
         </form>
       </div>
