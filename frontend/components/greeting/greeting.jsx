@@ -20,7 +20,7 @@ class Greeting extends React.Component {
       );
     }
   }
-
+  // can re-factor the <li> in css as children <li> of nav-link class?
   render () {
     return(
       <nav className="greeting-nav">
