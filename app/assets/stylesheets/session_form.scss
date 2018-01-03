@@ -1,0 +1,96 @@
+.page_contents {
+  padding: 6rem 2rem;
+  margin: 0 auto;
+}
+
+.login-form-container {
+  display: block;
+  margin: 0 0 2%;
+  border: 1px solid black;
+  // width: 66.13%;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.large_right_padding {
+  padding-right: 2rem;
+}
+
+.large_left_padding {
+  padding-left: 2rem;
+}
+
+.span_4_of_6 {
+  width: 66.13%;
+}
+
+.align-center {
+  text-align: center;
+}
+
+// .login-form > div {
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+// }
+
+.button_large {
+  padding: 14px 32px 16;
+  font-size: 20px;
+}
+
+.small_top_margin {
+  margin-top: .5rem!important;
+}
+
+.full_width {
+  width: 100%!important;
+  max-width: 100%!important;
+}
+
+.login-form-button {
+  text-shadow: 0 1px 1px rgba(0,0,0,.1);
+  font-size: 13.33333px;
+  background-color: #2ea664;
+  border-radius: .25rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  box-shadow: none;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0;
+}
+/* Can re-factor below into one*/
+.login-field {
+  font-size: 1.25rem;
+  line-height: normal;
+  padding: .75rem;
+  border-radius: .25rem;
+  border: 1px solid #a0a0a2;
+  color: #2c2d30;
+  max-width: 100%;
+  margin: 0 0 .5rem;
+  margin-right: .5rem!important;
+  height: auto;
+  flex-shrink: 10;
+  flex-grow: 10;
+  min-width: 150px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: .25rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,.25);
+  padding: 2rem, 2rem, 1rem;
+  position: relative;
+  border: 1px solid #e8e8e8;
+}

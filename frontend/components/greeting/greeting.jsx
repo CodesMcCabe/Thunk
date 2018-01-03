@@ -14,8 +14,8 @@ class Greeting extends React.Component {
     } else {
       return (
         <div>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign up</Link>
+          <Link to="/login">Sign in</Link>
         </div>
       );
     }
@@ -23,14 +23,14 @@ class Greeting extends React.Component {
   // can re-factor the <li> in css as children <li> of nav-link class?
   render () {
     return(
-      <nav className="greeting-nav">
-        <h1 className="nav-logo">Thunk</h1>
-        <ul className="nav-links">
-          <li className="nav-list-item">Why Slack?</li>
-          <li className="nav-list-item">Pricing</li>
-          <li className="nav-list-item">About us</li>
+      <nav className="top persistent">
+        <h1 className="logo">Thunk</h1>
+        <ul>
+          <li className="nav-list-item"><a>Why Slack?</a></li>
+          <li className="nav-list-item"><a>Pricing</a></li>
+          <li className="nav-list-item"><a>About us</a></li>
+          <li>{this.renderLoginHeader(this.props)}</li>
         </ul>
-        {this.renderLoginHeader(this.props)}
       </nav>
     );
   }
