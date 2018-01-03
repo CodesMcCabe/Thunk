@@ -139,24 +139,3 @@ button, input {
   color: #fff;
   box-shadow: inset 0 -2px rgba(0,0,0,.25);
 }
-
-.ts_icon:before {
-  font-size: inherit;
-  vertical-align: bottom;
-}
-
-.align_middle:before {
-  vertical-align: middle;
-}
-
-.ts_icon_arrow_large_right:before {
-  content: '\E262';
-}
-
-.ts_icon:before, ts-icon:before {
-  font-family: Slack;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  display: inline-block;
-}
