@@ -60,32 +60,34 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div className="page_contents">
-        <form onSubmit={this.handleSubmit} className="card
-          login-form-container align-center span_4_of_6 large_left_padding
-          large_right_padding login-form">
+      <div id="page">
+        <div id="page_contents">
+          <form onSubmit={this.handleSubmit} className="card align_center
+            span_4_of_6 col large_left_padding large_right_padding
+            large_bottom_padding large_bottom_margin float_none margin_auto">
 
-          {this.renderFormHeader()}
+            {this.renderFormHeader()}
 
-          {this.renderErrors()}
+            {this.renderErrors()}
 
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-field"
-                placeholder="Username"/>
+                <input type="text"
+                  value={this.state.username}
+                  onChange={this.update('username')}
+                  className="login-field"
+                  placeholder="Username"/>
 
-              <input type="password"
-                value={this.state.password}
-                placeholder="Password"
-                onChange={this.update('password')}
-                className="login-field"/>
+                <input type="password"
+                  value={this.state.password}
+                  placeholder="Password"
+                  onChange={this.update('password')}
+                  className="login-field"/>
 
-              <button className="login-form-button button_large
-                small_top_margin full_width">
-              {this.renderFormHeader()}</button>
-          
-        </form>
+                <button className="login-form-button button_large
+                  small_top_margin full_width">
+                {this.renderFormHeader()}</button>
+
+          </form>
+        </div>
       </div>
     );
   }
