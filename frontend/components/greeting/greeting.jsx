@@ -6,7 +6,7 @@ class Greeting extends React.Component {
   renderLoginHeader ({ currentUser, logout }) {
     if (currentUser) {
       return(
-        <div className="nav-user-loggedIn">
+        <div>
           <p>Welcome {currentUser.username}</p>
           <button onClick={ logout }>Log out</button>
         </div>
