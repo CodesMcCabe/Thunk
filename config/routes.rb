@@ -5,8 +5,10 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
   end
 
-  # root "static_pages#root"
-  root "api/chatrooms#show"
+  resources :chatrooms
+
+  root "static_pages#root"
+  # root "chatrooms#show"
 
   mount ActionCable.server, at: '/cable'
 end

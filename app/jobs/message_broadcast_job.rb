@@ -5,8 +5,7 @@ class MessageBroadcastJob < ApplicationJob
   # broadcasts message the the specificed chatroom
   # could make dynamic by adding a chatroom_id to each message and interpolating
   def perform(message)
-    ActionCable.server.broadcast 'chatroom_channel',
-    message: render_message(message)
+    ActionCable.server.broadcast 'chatroom_channel', message: render_message(message)
   end
 
   private
@@ -14,7 +13,6 @@ class MessageBroadcastJob < ApplicationJob
   # renders the partial calling the class of message
   # not sure what locals is. Do we need this specifically as the key?
   def render_message(message)
-    ApplicationController.renderer.render(partial: 'messages/message',
-    locals: { message: message })
+    ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message })
   end
 end

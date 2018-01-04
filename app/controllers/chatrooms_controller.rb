@@ -1,4 +1,4 @@
-class Api::ChatroomsController < ApplicationController
+class ChatroomsController < ApplicationController
   def show
     @messages = Message.all
   end
@@ -8,5 +8,5 @@ class Api::ChatroomsController < ApplicationController
   # render json partials for the front end of show and create the channel component
   # state of channel should pull in the subscribed users and the all messages associated to those users
 
-  
+
 end
