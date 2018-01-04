@@ -65,28 +65,29 @@ class SessionForm extends React.Component {
           <form onSubmit={this.handleSubmit} className="card align_center
             span_4_of_6 col large_left_padding large_right_padding
             large_bottom_padding large_bottom_margin float_none margin_auto">
-
+            <br></br>
+            {this.renderErrors()}
             <h1>{this.renderFormHeader()}</h1>
 
-            {this.renderErrors()}
-            <div class="col span_4_of_6 float_none margin_auto">
+
+            <div className="col span_4_of_6 float_none margin_auto">
               <p>
                 Enter your
                 <strong> Username </strong>
                 &
                 <strong> Password</strong>
               </p>
-              <p class="domain_input no_bottom_margin">
+              <p className="domain_input no_bottom_margin">
                 <input type="text"
                   id="domain"
                   value={this.state.username}
                   onChange={this.update('username')}
                   className="login-field"
                   placeholder="Username"
-                  autocomplete="off"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  spellcheck="false"/>
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck="false"/>
 
                 <input type="password"
                   id="domain"
@@ -94,12 +95,12 @@ class SessionForm extends React.Component {
                   placeholder="Password"
                   onChange={this.update('password')}
                   className="login-field"
-                  autocomplete="off"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  spellcheck="false"/>
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck="false"/>
               </p>
-              <p class="large_bottom_margin">
+              <p className="large_bottom_margin">
                 <button className="login_form_button btn_large
                   full_width">
                   <span>
