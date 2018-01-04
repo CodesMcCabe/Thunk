@@ -6,5 +6,8 @@ class CreateMessages < ActiveRecord::Migration[5.1]
       t.integer :chatroom_id, null: false
       t.timestamps
     end
+
+    add_index :messages, :user_id
+    add_index :messages, :chatroom_id
   end
 end
