@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Typed from 'typed.js';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      typeUsername: null,
+      typePassword: null,
+      typeSubmit: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demo = this.demo.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -58,6 +63,34 @@ class SessionForm extends React.Component {
     }
   }
 
+  demo (e) {
+   this.setState({username: '', password: ''});
+   const user = { username: 'demo-user', password: 'password' };
+   const username = {
+   strings: [user.username],
+   typeSpeed: 100
+   };
+   const password = {
+     strings: [user.password],
+     typeSpeed: 100
+   };
+   this.setState({
+     typeUsername: setTimeout(() => {
+       new Typed('.login-input-u', username);
+     }, 50),
+     typePassword: setTimeout(() => {
+       new Typed('.login-input-p', password);
+     }, 800),
+     typeSubmit: setTimeout(() => {
+       if (this.props.formType === 'login') {
+       this.props.processForm({user}) ;
+     } else {
+       this.props.login({user}) ;
+       }
+     }, 1700)
+   });
+ }
+
   render() {
     return(
       <div id="page">
@@ -69,37 +102,37 @@ class SessionForm extends React.Component {
             <h1>{this.renderFormHeader()}</h1>
 
             {this.renderErrors()}
-            <div class="col span_4_of_6 float_none margin_auto">
+            <div className="col span_4_of_6 float_none margin_auto">
               <p>
                 Enter your
                 <strong> Username </strong>
                 &
                 <strong> Password</strong>
               </p>
-              <p class="domain_input no_bottom_margin">
+              <p className="domain_input no_bottom_margin">
                 <input type="text"
                   id="domain"
                   value={this.state.username}
                   onChange={this.update('username')}
-                  className="login-field"
+                  className="login-field login-input-u"
                   placeholder="Username"
-                  autocomplete="off"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  spellcheck="false"/>
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck="false"/>
 
                 <input type="password"
                   id="domain"
                   value={this.state.password}
                   placeholder="Password"
                   onChange={this.update('password')}
-                  className="login-field"
-                  autocomplete="off"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  spellcheck="false"/>
+                  className="login-field login-input-p"
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck="false"/>
               </p>
-              <p class="large_bottom_margin">
+              <p className="large_bottom_margin">
                 <button className="login_form_button btn_large
                   full_width">
                   <span>
@@ -109,10 +142,18 @@ class SessionForm extends React.Component {
               </p>
             </div>
           </form>
+          <p>
+            <button onClick={this.demo} className="login_form_button
+              btn_large full_width">
+              Guest Login
+            </button>
+          </p>
         </div>
       </div>
     );
   }
+
+
 }
 
 export default withRouter(SessionForm);
