@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li key={`error-${i}`} className="errors">
             {error}
           </li>
         ))}
@@ -101,7 +101,7 @@ class SessionForm extends React.Component {
 
             <h1>{this.renderFormHeader()}</h1>
 
-            {this.renderErrors()}
+            <p>{this.renderErrors()}</p>
             <div className="col span_4_of_6 float_none margin_auto">
               <p>
                 Enter your
