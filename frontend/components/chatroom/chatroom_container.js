@@ -5,10 +5,11 @@ import { fetchChannelMessages,
   fetchSubbedUsers } from '../../actions/chatroom_actions';
 
 // *** STATE DOES NOT INCLUDE THESE YET
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return({
-    user_ids: state.subscribed_users,
-    messages: state.messages.channel_id
+    user_ids: state.users.subscriptions[ownProps.match.params.channelId]
+    messages: state.messages,
+    channelId: ownProps.match.params.channelId
   });
 };
 // ACTIONS NOT CREATED

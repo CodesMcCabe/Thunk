@@ -1,4 +1,5 @@
 import React from 'react';
+import Message from './message';
 
 class Chatroom extends React.Component {
   constructor(props) {
