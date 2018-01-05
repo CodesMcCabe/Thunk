@@ -4,12 +4,12 @@ import * as SessionApiUtil from '../util/session_api_util';
 
 export const login = (user) => dispatch => {
   return(
-    SessionApiUtil.login(user).then(currentUser =>
-      dispatch(receiveCurrentUser(currentUser))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    )
-  );
+    SessionApiUtil.login(user).then(currentUser => {
+      dispatch(receiveCurrentUser(currentUser));
+    }, err => {
+      dispatch(receiveErrors(err.responseJSON));
+    }
+  ));
 };
 
 export const logout = () => dispatch => {
