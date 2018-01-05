@@ -5,12 +5,14 @@ class Chatroom extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 // DOES OWNPROPS AUTOMATICALLY SETUP IN THIS STRUCTURE?
   componentDidMount() {
+    debugger
     this.setSocket();
-    this.props.fetchChannelMessages(this.props.match.params.channelId);
+    this.props.fetchMessages();
   }
 
   handleSubmit(e) {
@@ -38,23 +40,21 @@ class Chatroom extends React.Component {
   // HOW DO I GO ABOUT COMBINING THOSE IF I DO?
   // ADD MESSAGE INDEX COMPONENT
   render() {
-    return (
-      <div>
-        <h1>Chat Room</h1>
+      return (
         <div>
-          <ul>
-            {this.state.messages.map(message => (
-              <Message
-                key={ message.id }
-                message={ message }/>
-            ))}
-          </ul>
+          <h1>Chat Room</h1>
+          <div>
+            <ul>
+              {this.props.messages.map(message => (
+                <Message
+                  key={ message.id }
+                  message={ message }/>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-    );
-  }
-
-
+      );
+    }
 }
 
 export default Chatroom;

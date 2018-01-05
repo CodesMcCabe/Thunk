@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-import Chatroom from 'chatroom';
+import Chatroom from './chatroom';
 // ACTIONS NOT CREATED
 import { fetchMessages,
-  fetchMessage, sendMessage } from '../../actions/chatroom_actions';
+  fetchMessage, sendMessage } from '../../actions/message_actions';
 
 // *** STATE DOES NOT INCLUDE THESE YET
 const mapStateToProps = (state, ownProps) => {
   return({
+
     // user_ids: state.users.subscriptions[ownProps.match.params.channelId],
-    messages: state.messages,
+    messages: Object.values(state.messages)
     // channelId: ownProps.match.params.channelId
   });
 };

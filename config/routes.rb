@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :chatrooms
 
-  # root "static_pages#root"
-  root "chatrooms#show"
+  root "static_pages#root"
+  # root "chatrooms#show"
 
   mount ActionCable.server, at: '/cable'
 end
