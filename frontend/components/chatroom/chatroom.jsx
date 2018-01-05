@@ -10,7 +10,6 @@ class Chatroom extends React.Component {
   }
 // DOES OWNPROPS AUTOMATICALLY SETUP IN THIS STRUCTURE?
   componentDidMount() {
-    debugger
     this.setSocket();
     this.props.fetchMessages();
   }
