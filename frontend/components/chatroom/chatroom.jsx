@@ -5,7 +5,6 @@ class Chatroom extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props.messages;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 // DOES OWNPROPS AUTOMATICALLY SETUP IN THIS STRUCTURE?
@@ -17,7 +16,7 @@ class Chatroom extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
   }
-
+  // CAN JUST USE REDUX STATE TO FETCHMESSAGES DONT NEED A LOCAL STATE
   updateMessages(msg) {
     const newMessages = Object.assign({}, this.state, msg);
     this.setState({messages: newMessages});
@@ -37,6 +36,7 @@ class Chatroom extends React.Component {
   // THIS CURRENTLY WOULD RENDER ALL MESSAGES
   // WOULD I WANT TO BREAKOUT THE FORM PART OF THE COMPONENT?
   // HOW DO I GO ABOUT COMBINING THOSE IF I DO?
+  // ADD MESSAGE INDEX COMPONENT
   render() {
     return (
       <div>

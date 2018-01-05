@@ -9,10 +9,11 @@ class MessageBroadcastJob < ApplicationJob
   # broadcasts message the the specificed chatroom
   # could make dynamic by adding a chatroom_id to each message and interpolating
   def perform(message)
-    ActionCable.server.broadcast 'chatroom_channel', {action: 'message', 
+    ActionCable.server.broadcast 'chatroom_channel', {action: 'message',
       message: message}
   end
 
+  # CURRENTLY NOT USED
   private
   # believe this is way to call the message render w/o creating a message controller
   # renders the partial calling the class of message

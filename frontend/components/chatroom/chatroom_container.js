@@ -1,26 +1,31 @@
 import { connect } from 'react-redux';
 import Chatroom from 'chatroom';
 // ACTIONS NOT CREATED
-import { fetchChannelMessages,
-  fetchSubbedUsers } from '../../actions/chatroom_actions';
+import { fetchMessages,
+  fetchMessage, sendMessage } from '../../actions/chatroom_actions';
 
 // *** STATE DOES NOT INCLUDE THESE YET
 const mapStateToProps = (state, ownProps) => {
   return({
-    user_ids: state.users.subscriptions[ownProps.match.params.channelId]
+    // user_ids: state.users.subscriptions[ownProps.match.params.channelId],
     messages: state.messages,
-    channelId: ownProps.match.params.channelId
+    // channelId: ownProps.match.params.channelId
   });
 };
 // ACTIONS NOT CREATED
 const mapDispatchToProps = (dispatch) => {
   return({
-    fetchChannelMessages: (channelId) => (dispatch(
-      fetchChannelMessages(channelId))),
+    fetchMessages: () => (dispatch(
+      fetchMessages())
+    ),
 
-    fetchSubbedUsers: (channelId) => (dispatch(
-      fetchSubbedUsers(channelId)
-    ))
+    fetchMessage: (id) => (dispatch(
+      fetchMessage(id))
+    ),
+
+    sendMessage: (msg) => dispatch(
+      sendMessage(msg)
+    )
   });
 };
 
