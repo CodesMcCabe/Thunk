@@ -1,3 +1,6 @@
+# CLIENT SIDE
+# THIS WILL BE A setSocket() METHOD IN COMPONENT
+
 App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   connected: ->
     # Called when the subscription is ready for use on the server

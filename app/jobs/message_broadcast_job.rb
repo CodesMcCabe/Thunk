@@ -1,3 +1,7 @@
+# SERVER SIDE
+
+# BROADCASTS DATA TO THE CHANNEL
+
 class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
@@ -5,7 +9,8 @@ class MessageBroadcastJob < ApplicationJob
   # broadcasts message the the specificed chatroom
   # could make dynamic by adding a chatroom_id to each message and interpolating
   def perform(message)
-    ActionCable.server.broadcast 'chatroom_channel', message: render_message(message)
+    ActionCable.server.broadcast 'chatroom_channel', {action: 'message', 
+      message: message}
   end
 
   private

@@ -1,3 +1,7 @@
+# SERVER SIDE
+
+# CREATES MESSAGE HERE BEFORE JOB IS PERFORMED
+
 class ChatroomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "chatroom_channel"

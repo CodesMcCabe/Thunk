@@ -1,3 +1,5 @@
+# RELAYS TO JOB AFTER COMMIT
+
 class Message < ApplicationRecord
   # belongs_to :user
   # belongs_to :chatroom
