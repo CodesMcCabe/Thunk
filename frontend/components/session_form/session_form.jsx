@@ -132,7 +132,7 @@ class SessionForm extends React.Component {
                   autoCapitalize="off"
                   spellCheck="false"/>
               </p>
-              <p className="large_bottom_margin">
+              <p className="">
                 <button className="login_form_button btn_large
                   full_width">
                   <span>
@@ -140,14 +140,14 @@ class SessionForm extends React.Component {
                   </span>
                 </button>
               </p>
+              <p className="large_bottom_margin">
+                <button onClick={this.demo} className="login_form_button
+                  btn_large full_width">
+                  Don't you Thunk that button!
+                </button>
+              </p>
             </div>
           </form>
-          <p>
-            <button onClick={this.demo} className="login_form_button
-              btn_large full_width">
-              Guest Login
-            </button>
-          </p>
         </div>
       </div>
     );
