@@ -101,7 +101,7 @@ class SessionForm extends React.Component {
 
             <h1>{this.renderFormHeader()}</h1>
 
-            <p>{this.renderErrors()}</p>
+            {this.renderErrors()}
             <div className="col span_4_of_6 float_none margin_auto">
               <p>
                 Enter your
