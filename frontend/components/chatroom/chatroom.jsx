@@ -39,6 +39,7 @@ class Chatroom extends React.Component {
   // HOW DO I GO ABOUT COMBINING THOSE IF I DO?
   // ADD MESSAGE INDEX COMPONENT
   render() {
+    debugger
       return (
         <div>
           <h1>Chat Room</h1>
@@ -46,8 +47,8 @@ class Chatroom extends React.Component {
             <ul>
               {this.props.messages.map(message => (
                 <Message
-                  key={ message.id }
-                  message={ message }/>
+                  key={message.id}
+                  message={message}/>
               ))}
             </ul>
           </div>

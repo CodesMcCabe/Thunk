@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Typed from 'typed.js';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      typeUsername: null,
+      typePassword: null,
+      typeSubmit: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demo = this.demo.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,7 +41,7 @@ class SessionForm extends React.Component {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li key={`error-${i}`} className="errors">
             {error}
           </li>
         ))}
@@ -58,6 +63,34 @@ class SessionForm extends React.Component {
     }
   }
 
+  demo (e) {
+   this.setState({username: '', password: ''});
+   const user = { username: 'demo-user', password: 'password' };
+   const username = {
+   strings: [user.username],
+   typeSpeed: 100
+   };
+   const password = {
+     strings: [user.password],
+     typeSpeed: 100
+   };
+   this.setState({
+     typeUsername: setTimeout(() => {
+       new Typed('.login-input-u', username);
+     }, 50),
+     typePassword: setTimeout(() => {
+       new Typed('.login-input-p', password);
+     }, 800),
+     typeSubmit: setTimeout(() => {
+       if (this.props.formType === 'login') {
+       this.props.processForm({user}) ;
+     } else {
+       this.props.login({user}) ;
+       }
+     }, 1700)
+   });
+ }
+
   render() {
     return(
       <div id="page">
@@ -65,11 +98,10 @@ class SessionForm extends React.Component {
           <form onSubmit={this.handleSubmit} className="card align_center
             span_4_of_6 col large_left_padding large_right_padding
             large_bottom_padding large_bottom_margin float_none margin_auto">
-            <br></br>
-            {this.renderErrors()}
+
             <h1>{this.renderFormHeader()}</h1>
 
-
+            {this.renderErrors()}
             <div className="col span_4_of_6 float_none margin_auto">
               <p>
                 Enter your
@@ -82,7 +114,7 @@ class SessionForm extends React.Component {
                   id="domain"
                   value={this.state.username}
                   onChange={this.update('username')}
-                  className="login-field"
+                  className="login-field login-input-u"
                   placeholder="Username"
                   autoComplete="off"
                   autoCorrect="off"
@@ -94,18 +126,24 @@ class SessionForm extends React.Component {
                   value={this.state.password}
                   placeholder="Password"
                   onChange={this.update('password')}
-                  className="login-field"
+                  className="login-field login-input-p"
                   autoComplete="off"
                   autoCorrect="off"
                   autoCapitalize="off"
                   spellCheck="false"/>
               </p>
-              <p className="large_bottom_margin">
+              <p className="">
                 <button className="login_form_button btn_large
                   full_width">
                   <span>
                     {this.renderFormHeader()}
                   </span>
+                </button>
+              </p>
+              <p className="large_bottom_margin">
+                <button onClick={this.demo} className="login_form_button
+                  btn_large full_width">
+                  Don't you Thunk that button!
                 </button>
               </p>
             </div>
@@ -114,6 +152,8 @@ class SessionForm extends React.Component {
       </div>
     );
   }
+
+
 }
 
 export default withRouter(SessionForm);
