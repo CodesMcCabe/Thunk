@@ -143,7 +143,7 @@ class SessionForm extends React.Component {
               <p className="large_bottom_margin">
                 <button onClick={this.demo} className="login_form_button
                   btn_large full_width">
-                  Don't you Thunk that button!
+                  Guest login
                 </button>
               </p>
             </div>

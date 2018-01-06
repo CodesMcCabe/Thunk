@@ -13,7 +13,12 @@ class ChatroomChannel < ApplicationCable::Channel
 
   # creating message in database using the data passed in by the form
   #
+<<<<<<< HEAD
   def speak(data)
     Message.create! content: data['message']
+=======
+  def speak
+
+>>>>>>> a_cable_testing
   end
 end
