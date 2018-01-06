@@ -39,7 +39,6 @@ class Chatroom extends React.Component {
   // HOW DO I GO ABOUT COMBINING THOSE IF I DO?
   // ADD MESSAGE INDEX COMPONENT
   render() {
-    debugger
       return (
         <div>
           <h1>Chat Room</h1>
