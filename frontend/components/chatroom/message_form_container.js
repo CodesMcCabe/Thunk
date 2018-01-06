@@ -10,11 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-<<<<<<< HEAD
-=======
     // create Message is being called in chatroom channel when speak is Called
-    // 
->>>>>>> a_cable_testing
+
     createMessage: message => dispatch(createMessage(message))
   };
 };
