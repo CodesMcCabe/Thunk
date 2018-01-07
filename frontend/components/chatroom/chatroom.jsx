@@ -47,7 +47,7 @@ class Chatroom extends React.Component {
 }
 
   createSocket() {
-    let cable = ActionCable.createConsumer('ws://aa-thunk.herokuapp.com/cable');
+    let cable = ActionCable.createConsumer('wss://aa-thunk.herokuapp.com/cable');
     this.chats = cable.subscriptions.create({
     channel: 'ChatroomChannel'
   }, {
