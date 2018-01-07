@@ -10,7 +10,8 @@ class SessionForm extends React.Component {
       password: "",
       typeUsername: null,
       typePassword: null,
-      typeSubmit: null
+      typeSubmit: null,
+      errors: this.props.errors
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,16 +38,35 @@ class SessionForm extends React.Component {
     }
   }
 
+  changeFormMargin() {
+    let margin = document.getElementById('form');
+    if (margin.className === 'session_box') {
+      margin.className = 'session_box_with_errors';
+    } else {
+      margin.className = 'session_box';
+    }
+  }
+
   renderErrors() {
+    if (this.props.errors.length === 0) {
+      return (
+        <div>
+        </div>
+      );
+  } else {
     return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`} className="errors">
-            {error}
-          </li>
-        ))}
-      </ul>
+      <div className="errors">
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} >
+              {error}
+            </li>
+          ))}
+        </ul>
+        {this.changeFormMargin()}
+      </div>
     );
+  }
   }
 
   update(field) {
@@ -94,22 +114,21 @@ class SessionForm extends React.Component {
   render() {
     return(
       <div id="page">
-        <div id="page_contents">
-          <form onSubmit={this.handleSubmit} className="card align_center
-            span_4_of_6 col large_left_padding large_right_padding
-            large_bottom_padding large_bottom_margin float_none margin_auto">
+        {this.renderErrors()}
+
+        <div className="session_box" id="form">
+          <form onSubmit={this.handleSubmit} className="form_box">
 
             <h1>{this.renderFormHeader()}</h1>
 
-            {this.renderErrors()}
-            <div className="col span_4_of_6 float_none margin_auto">
+            <div className="">
               <p>
                 Enter your
                 <strong> Username </strong>
                 &
                 <strong> Password</strong>
               </p>
-              <p className="domain_input no_bottom_margin">
+              <p className="">
                 <input type="text"
                   id="domain"
                   value={this.state.username}
@@ -120,7 +139,7 @@ class SessionForm extends React.Component {
                   autoCorrect="off"
                   autoCapitalize="off"
                   spellCheck="false"/>
-
+                <br/>
                 <input type="password"
                   id="domain"
                   value={this.state.password}
@@ -133,21 +152,19 @@ class SessionForm extends React.Component {
                   spellCheck="false"/>
               </p>
               <p className="">
-                <button className="login_form_button btn_large
-                  full_width">
+                <button className="session_box_button">
                   <span>
                     {this.renderFormHeader()}
                   </span>
                 </button>
               </p>
-              <p className="large_bottom_margin">
-                <button onClick={this.demo} className="login_form_button
-                  btn_large full_width">
-                  Guest login
-                </button>
-              </p>
             </div>
           </form>
+          <p className="">
+            <button onClick={this.demo} className="session_box_button">
+              Guest login
+            </button>
+          </p>
         </div>
       </div>
     );
