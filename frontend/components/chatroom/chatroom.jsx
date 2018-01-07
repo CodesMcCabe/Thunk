@@ -12,7 +12,8 @@ class Chatroom extends React.Component {
     };
 
   }
-// DOES OWNPROPS AUTOMATICALLY SETUP IN THIS STRUCTURE?
+
+
   componentDidMount() {
     this.createSocket();
   }
@@ -28,18 +29,11 @@ class Chatroom extends React.Component {
       this.setState({ [field]: e.target.value });
     };
   }
-<<<<<<< HEAD
-
-  updateMessages(msg) {
-    const newMessages = Object.assign({}, this.state, msg);
-    this.setState({messages: newMessages});
-=======
   // CAN JUST USE REDUX STATE TO FETCHMESSAGES DONT NEED A LOCAL STATE
   handleSendEvent(e) {
     e.preventDefault();
     this.chats.create(this.state.currentChatMessage);
     this.setState({currentChatMessage: ''});
->>>>>>> a_cable_testing
   }
 
   renderChatLog() {
