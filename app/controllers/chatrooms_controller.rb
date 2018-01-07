@@ -1,6 +1,6 @@
 class ChatroomsController < ApplicationController
   def show
-    @messages = Message.all
+    # @messages = Message.all
   end
 
   # can create a chatroom here which would have a topic
