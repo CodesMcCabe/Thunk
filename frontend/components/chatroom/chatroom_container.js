@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     // channelId: ownProps.match.params.channelId
   });
 };
-// ACTIONS NOT CREATED
+
 const mapDispatchToProps = (dispatch) => {
   return({
     fetchMessages: () => (dispatch(

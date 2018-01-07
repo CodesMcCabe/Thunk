@@ -1,10 +1,15 @@
 import React from 'react';
 import Message from './message';
+import { fetchMessage } from '../../actions/message_actions';
 
 class Chatroom extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      messages: this.props.messages,
+      message: ""
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -18,9 +23,9 @@ class Chatroom extends React.Component {
     e.preventDefault();
   }
   // CAN JUST USE REDUX STATE TO FETCHMESSAGES DONT NEED A LOCAL STATE
-  updateMessages(msg) {
-    const newMessages = Object.assign({}, this.state, msg);
-    this.setState({messages: newMessages});
+  sendMessage(e) {
+    e.preventDefault();
+    this.props.sendMessage()
   }
 
   setSocket() {
@@ -28,7 +33,7 @@ class Chatroom extends React.Component {
       received(data) {
         switch (data.action) {
           case 'message':
-            this.updateMessages(data.message); // here we will have to update INTERNAL and GLOBAL state
+            fetchMessage(data.message.id); // here we will have to update INTERNAL and GLOBAL state
             break;
         }
       }
@@ -51,7 +56,9 @@ class Chatroom extends React.Component {
               ))}
             </ul>
           </div>
-        </div>
+        <form onSubmit={this.sendMessage}>
+        </form>
+      </div>
       );
     }
 }
