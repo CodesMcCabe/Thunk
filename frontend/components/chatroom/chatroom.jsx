@@ -8,9 +8,9 @@ class Chatroom extends React.Component {
 
     this.state = {
       messages: this.props.messages,
-      message: ""
+      content: {}
     };
-
+    this.sendMessage = this.sendMessage.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 // DOES OWNPROPS AUTOMATICALLY SETUP IN THIS STRUCTURE?
@@ -22,10 +22,15 @@ class Chatroom extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
   }
+
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
   // CAN JUST USE REDUX STATE TO FETCHMESSAGES DONT NEED A LOCAL STATE
-  sendMessage(e) {
-    e.preventDefault();
-    this.props.sendMessage()
+  sendMessage() {
+    this.props.sendMessage({content: this.state.content});
   }
 
   setSocket() {
@@ -57,6 +62,8 @@ class Chatroom extends React.Component {
             </ul>
           </div>
         <form onSubmit={this.sendMessage}>
+          <input type="text" onChange={this.update('content')}/>
+          <button>Submit</button>
         </form>
       </div>
       );

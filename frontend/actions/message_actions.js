@@ -16,9 +16,11 @@ export const fetchMessage = (id) => dispatch => {
   );
 };
 
-export const sendMessage = (message) => {
+export const sendMessage = (message) => dispatch => {
   return (
-    MessageApiUtil.sendMessage(message)
+    MessageApiUtil.sendMessage(message).then(message => dispatch(
+      receiveMessage(message)
+    ))
   );
 };
 

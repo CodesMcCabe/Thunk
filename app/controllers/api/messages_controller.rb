@@ -8,6 +8,7 @@ class Api::MessagesController < ApplicationController
     @message = Message.new(msg_params)
     if @message.save
       MessageBroadcastJob.perform_later(@message)
+      render 'api/messages/show'
     else
     end
   end
