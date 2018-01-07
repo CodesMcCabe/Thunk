@@ -16,11 +16,12 @@ export const fetchMessage = (id) => {
   );
 };
 // message content,
-export const sendMessage = (msg) => {
+export const sendMessage = (message) => {
   return (
     $.ajax({
       method: 'post',
       url: 'api/messages',
+      data: { message }
     })
   );
 };

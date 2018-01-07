@@ -1,38 +1,82 @@
 import React from 'react';
-import Message from './message';
+// import Message from './message';
+// import ActionCable from 'actioncable';
 
 class Chatroom extends React.Component {
   constructor(props) {
     super(props);
 
-  this.handleSubmit = this.handleSubmit.bind(this);
-}
+    this.state = {
+      currentChatMessage: '',
+      chatLogs: []
+    };
+
+  }
 // DOES OWNPROPS AUTOMATICALLY SETUP IN THIS STRUCTURE?
   componentDidMount() {
-    this.setSocket();
-    this.props.fetchMessages();
+    this.createSocket();
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  updateCurrentChatMessage(event) {
+    this.setState({
+      currentChatMessage: event.target.value
+    });
   }
+
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+<<<<<<< HEAD
 
   updateMessages(msg) {
     const newMessages = Object.assign({}, this.state, msg);
     this.setState({messages: newMessages});
+=======
+  // CAN JUST USE REDUX STATE TO FETCHMESSAGES DONT NEED A LOCAL STATE
+  handleSendEvent(e) {
+    e.preventDefault();
+    this.chats.create(this.state.currentChatMessage);
+    this.setState({currentChatMessage: ''});
+>>>>>>> a_cable_testing
   }
 
-  setSocket() {
-    App.chatroom = App.cable.subscriptions.create('ChatroomChannel', {
-      received(data) {
-        switch (data.action) {
-          case 'message':
-            this.updateMessages(data.message); // here we will have to update INTERNAL and GLOBAL state
-            break;
-        }
-      }
-    });
+  renderChatLog() {
+  return this.state.chatLogs.map((el) => {
+    return (
+      <li key={`chat_${el.id}`}>
+        <span>{ el.content }</span>
+      </li>
+    );
+  });
+}
+
+  createSocket() {
+    let cable = ActionCable.createConsumer('ws://localhost:3000/cable');
+    this.chats = cable.subscriptions.create({
+    channel: 'ChatroomChannel'
+  }, {
+    connected: () => {},
+    received: (data) => {
+      let chatLogs = this.state.chatLogs;
+      chatLogs.push(data);
+      this.setState({ chatLogs: chatLogs });
+    },
+    create: function(chatContent) {
+      this.perform('create', {
+        content: chatContent
+      });
+    }
+  });
   }
+
+  handleChatInputKeyPress(e) {
+    if(e.key === 'Enter') {
+      this.handleSendEvent(e);
+    }
+  }
+
   // THIS CURRENTLY WOULD RENDER ALL MESSAGES
   // WOULD I WANT TO BREAKOUT THE FORM PART OF THE COMPONENT?
   // HOW DO I GO ABOUT COMBINING THOSE IF I DO?
@@ -41,16 +85,16 @@ class Chatroom extends React.Component {
       return (
         <div>
           <h1>Chat Room</h1>
-          <div>
             <ul>
-              {this.props.messages.map(message => (
-                <Message
-                  key={message.id}
-                  message={message}/>
-              ))}
+              { this.renderChatLog() }
             </ul>
-          </div>
-        </div>
+          <input type="text"
+            onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
+            value={this.state.currentChatMessage}
+            onChange={ (e) => this.updateCurrentChatMessage(e)}
+            placeholder="Enter your message..."/>
+          <button onClick={ (e) => this.handleSendEvent(e) }>Send</button>
+      </div>
       );
     }
 }

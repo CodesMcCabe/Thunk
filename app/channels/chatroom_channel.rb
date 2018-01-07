@@ -1,10 +1,8 @@
 # SERVER SIDE
 
-# CREATES MESSAGE HERE BEFORE JOB IS PERFORMED
-
 class ChatroomChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "chatroom_channel"
+    stream_from 'chatroom_channel'
   end
 
   def unsubscribed
@@ -13,7 +11,7 @@ class ChatroomChannel < ApplicationCable::Channel
 
   # creating message in database using the data passed in by the form
   #
-  def speak
-
+  def create(opts)
+    ChatMessage.create(content: opts.fetch('content'))
   end
 end
