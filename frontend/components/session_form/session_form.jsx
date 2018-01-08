@@ -59,6 +59,7 @@ class SessionForm extends React.Component {
   } else {
     return(
       <div className="errors">
+        <img className="hazard_icon" src={window.staticImages.hazard}/>
         <ul>
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`} >

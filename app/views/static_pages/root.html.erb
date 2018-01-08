@@ -5,6 +5,10 @@
       user: current_user
     ).html_safe %>
   <% end %>
+
+  window.staticImages = {
+    hazard: '<%= asset_url("hazard.png") %>'
+  }
 </script>
 
 <main id="root"></main>
