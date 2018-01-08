@@ -40,7 +40,7 @@ class Chatroom extends React.Component {
   renderChatLog() {
   return this.state.chatLogs.map((el) => {
     return (
-      <li className="chatlog" key={`chat_${el.id}`}>
+      <li key={`chat_${el.id}`}>
         <span>{ el.content }</span>
       </li>
     );
@@ -79,7 +79,7 @@ class Chatroom extends React.Component {
   render() {
       return (
         <div>
-          <div id="chatroom_page">
+          <div className="chatroom_page">
             <div className="sidebar_container">
               <div className="sidebar_header"><SidebarContainer /></div>
               <div className="sidebar_scroll">Channels</div>
@@ -87,16 +87,19 @@ class Chatroom extends React.Component {
 
             <div className="chat_container">
               <header className="chatroom_header">Chat Room</header>
-              <ul>
-                { this.renderChatLog() }
-              </ul>
-              <footer>
+              <div className="chatlog_container">
+                <ul className="chatlog">
+                  { this.renderChatLog() }
+                </ul>
+              </div>
+              <footer className="message_footer_container">
+                <button className="message_add_file">A</button>
                 <input type="text"
                   onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
                   value={this.state.currentChatMessage}
                   onChange={ (e) => this.updateCurrentChatMessage(e)}
                   placeholder="Enter your message..."
-                  className="send_message_box"/>
+                  className="message_box"/>
               </footer>
             </div>
 
