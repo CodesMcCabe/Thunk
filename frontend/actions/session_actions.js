@@ -1,6 +1,11 @@
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 import * as SessionApiUtil from '../util/session_api_util';
+export const REMOVE_ERRORS = 'REMOVE_ERRORS';
+
+export const removeErrors = () => ({
+  type: REMOVE_ERRORS
+});
 
 export const login = (user) => dispatch => {
   return(

@@ -79,22 +79,28 @@ class Chatroom extends React.Component {
   render() {
       return (
         <div>
-        <div className="sidebar_header"><SidebarContainer /></div>
-        <div className="sidebar_scroll">Channels</div>
-        <div id="chatroom_page">
-          <header className="chatroom_header">Chat Room</header>
-            <ul>
-              { this.renderChatLog() }
-            </ul>
-        <footer>
-          <input type="text"
-            onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
-            value={this.state.currentChatMessage}
-            onChange={ (e) => this.updateCurrentChatMessage(e)}
-            placeholder="Enter your message..."
-            className="send_message_box"/>
-        </footer>  
-      </div>
+          <div id="chatroom_page">
+            <div className="sidebar_container">
+              <div className="sidebar_header"><SidebarContainer /></div>
+              <div className="sidebar_scroll">Channels</div>
+            </div>
+
+            <div className="chat_container">
+              <header className="chatroom_header">Chat Room</header>
+              <ul>
+                { this.renderChatLog() }
+              </ul>
+              <footer>
+                <input type="text"
+                  onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
+                  value={this.state.currentChatMessage}
+                  onChange={ (e) => this.updateCurrentChatMessage(e)}
+                  placeholder="Enter your message..."
+                  className="send_message_box"/>
+              </footer>
+            </div>
+
+          </div>
       </div>
       );
     }

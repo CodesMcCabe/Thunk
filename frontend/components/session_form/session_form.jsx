@@ -19,11 +19,15 @@ class SessionForm extends React.Component {
     this.demo = this.demo.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
-      this.props.history.push('/');
-    }
+  componentWillUnmount() {
+    this.props.removeErrors();
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.loggedIn) {
+  //     this.props.history.push('/');
+  //   }
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -43,8 +47,6 @@ class SessionForm extends React.Component {
     let margin = document.getElementById('form');
     if (margin.className === 'session_box') {
       margin.className = 'session_box_with_errors';
-    } else {
-      margin.className = 'session_box';
     }
   }
 
@@ -57,9 +59,6 @@ class SessionForm extends React.Component {
   } else {
     return(
       <div className="errors">
-        <header>
-          <GreetingContainer />
-        </header>
         <ul>
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`} >
