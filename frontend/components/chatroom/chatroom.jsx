@@ -1,6 +1,6 @@
 import React from 'react';
 import SidebarContainer from '../sidebar/sidebar_container';
-// import Message from './message';
+import MessageIndexItem from './message_index_item';
 // import ActionCable from 'actioncable';
 
 class Chatroom extends React.Component {
@@ -8,8 +8,9 @@ class Chatroom extends React.Component {
     super(props);
 
     this.state = {
-      currentChatMessage: '',
-      chatLogs: []
+      currentMessage: '',
+      chatLogs: [],
+      currentUser: this.props.currentUser
     };
 
   }
@@ -17,11 +18,12 @@ class Chatroom extends React.Component {
 
   componentDidMount() {
     this.createSocket();
+    this.props.fetchMessages();
   }
 
-  updateCurrentChatMessage(event) {
+  updateCurrentMessage(event) {
     this.setState({
-      currentChatMessage: event.target.value
+      currentMessage: event.target.value
     });
   }
 
@@ -33,8 +35,12 @@ class Chatroom extends React.Component {
   // CAN JUST USE REDUX STATE TO FETCHMESSAGES DONT NEED A LOCAL STATE
   handleSendEvent(e) {
     e.preventDefault();
-    this.chats.create(this.state.currentChatMessage);
-    this.setState({currentChatMessage: ''});
+    this.chats.create({
+      content: this.state.currentMessage,
+      user_id: this.state.currentUser.id,
+      channel_id: 1
+    });
+    this.setState({currentMessage: ''});
   }
 
   renderChatLog() {
@@ -60,7 +66,9 @@ class Chatroom extends React.Component {
     },
     create: function(chatContent) {
       this.perform('create', {
-        content: chatContent
+        content: chatContent.content,
+        user_id: chatContent.user_id,
+        channel_id: chatContent.channel_id
       });
     }
   });
@@ -89,6 +97,9 @@ class Chatroom extends React.Component {
               <header className="chatroom_header">Chat Room</header>
               <div className="chatlog_container">
                 <ul className="chatlog">
+                  {this.props.messages.map(message => (
+                    <MessageIndexItem key={message.id} message={message}/>
+                  ))}
                   { this.renderChatLog() }
                 </ul>
               </div>
@@ -96,8 +107,8 @@ class Chatroom extends React.Component {
                 <button className="message_add_file">A</button>
                 <input type="text"
                   onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
-                  value={this.state.currentChatMessage}
-                  onChange={ (e) => this.updateCurrentChatMessage(e)}
+                  value={this.state.currentMessage}
+                  onChange={ (e) => this.updateCurrentMessage(e)}
                   placeholder="Enter your message..."
                   className="message_box"/>
               </footer>

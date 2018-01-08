@@ -12,6 +12,9 @@ class ChatroomChannel < ApplicationCable::Channel
   # creating message in database using the data passed in by the form
   #
   def create(opts)
-    ChatMessage.create(content: opts.fetch('content'))
+    Message.create(
+      content: opts.fetch('content'),
+      user_id: opts.fetch('user_id'),
+      channel_id: opts.fetch('channel_id'))
   end
 end
