@@ -1,4 +1,5 @@
 import React from 'react';
+import SidebarContainer from '../sidebar/sidebar_container';
 // import Message from './message';
 // import ActionCable from 'actioncable';
 
@@ -39,7 +40,7 @@ class Chatroom extends React.Component {
   renderChatLog() {
   return this.state.chatLogs.map((el) => {
     return (
-      <li key={`chat_${el.id}`}>
+      <li className="chatlog" key={`chat_${el.id}`}>
         <span>{ el.content }</span>
       </li>
     );
@@ -78,16 +79,22 @@ class Chatroom extends React.Component {
   render() {
       return (
         <div>
-          <h1>Chat Room</h1>
+        <div className="sidebar_header"><SidebarContainer /></div>
+        <div className="sidebar_scroll">Channels</div>
+        <div id="chatroom_page">
+          <header className="chatroom_header">Chat Room</header>
             <ul>
               { this.renderChatLog() }
             </ul>
+        <footer>
           <input type="text"
             onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
             value={this.state.currentChatMessage}
             onChange={ (e) => this.updateCurrentChatMessage(e)}
-            placeholder="Enter your message..."/>
-          <button onClick={ (e) => this.handleSendEvent(e) }>Send</button>
+            placeholder="Enter your message..."
+            className="send_message_box"/>
+        </footer>  
+      </div>
       </div>
       );
     }

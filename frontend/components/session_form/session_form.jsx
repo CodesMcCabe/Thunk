@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Typed from 'typed.js';
+import GreetingContainer from '../greeting/greeting_container';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -56,6 +57,9 @@ class SessionForm extends React.Component {
   } else {
     return(
       <div className="errors">
+        <header>
+          <GreetingContainer />
+        </header>
         <ul>
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`} >

@@ -8,7 +8,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <div>
     <header>
+      // MOVE THIS TO THE HOME PAGE SO DOES NOT RENDER ON OTHERS
       <GreetingContainer />
+
     </header>
 
     <AuthRoute path="/login" component={SessionFormContainer} />
