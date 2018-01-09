@@ -8,11 +8,10 @@ class Chatroom extends React.Component {
     super(props);
     // CURRENT MESSAGE SHOULD BE LOCAL STATE OF FORM COMPONENT
     // INSTEAD OF CHATLOGS, CHANGE GLOBAL STATE
-    // PUT CURRENT USER IN PROPS
+    // FIX WILL ALLOW FOR SCROLL FIX WHEN IN MID-CHAT
     this.state = {
       currentMessage: '',
       chatLogs: [],
-      currentUser: this.props.currentUser,
     };
     this.scrollLastMessage = this.scrollLastMessage.bind(this);
   }
@@ -47,7 +46,7 @@ class Chatroom extends React.Component {
     e.preventDefault();
     this.chats.create({
       content: this.state.currentMessage,
-      user_id: this.state.currentUser.id,
+      user_id: this.props.currentUser.id,
       channel_id: 1
     });
     this.setState({currentMessage: ''});
