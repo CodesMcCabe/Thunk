@@ -15,15 +15,16 @@ class ApplicationController < ActionController::Base
   end
 
   def login(user)
+    @current_user = user
     user.reset_session_token!
     session[:session_token] = user.session_token
     cookies.signed[:user_id] = user.id
-    @current_user = user
   end
 
   def logout
     current_user.reset_session_token!
     session[:session_token] = nil
+    cookies.signed[:user_id] = nil
     @current_user = nil
   end
 

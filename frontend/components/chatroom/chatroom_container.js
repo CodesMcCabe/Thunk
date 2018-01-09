@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
 import Chatroom from './chatroom';
-// ACTIONS NOT CREATED
 import { fetchMessages,
   fetchMessage, sendMessage } from '../../actions/message_actions';
 import { logout } from '../../actions/session_actions';
 
-// *** STATE DOES NOT INCLUDE THESE YET
 const mapStateToProps = (state, ownProps) => {
   return({
 
