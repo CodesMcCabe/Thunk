@@ -6,32 +6,42 @@ import MessageIndexItem from './message_index_item';
 class Chatroom extends React.Component {
   constructor(props) {
     super(props);
-
+    // CURRENT MESSAGE SHOULD BE LOCAL STATE OF FORM COMPONENT
+    // INSTEAD OF CHATLOGS, CHANGE GLOBAL STATE
+    // PUT CURRENT USER IN PROPS
     this.state = {
       currentMessage: '',
       chatLogs: [],
-      currentUser: this.props.currentUser
+      currentUser: this.props.currentUser,
     };
-
+    this.scrollLastMessage = this.scrollLastMessage.bind(this);
   }
 
+  componentWillReceiveProps (nextProps) {
+    if(this.props.messages !== nextProps.messages) {
+      this.scrollLastMessage();
+    }
+  }
 
   componentDidMount() {
     this.createSocket();
     this.props.fetchMessages();
   }
 
+  componentDidUpdate() {
+    this.scrollLastMessage();
+  }
+
+  scrollLastMessage () {
+    document.getElementById('chat_scroll').scrollTop = 9999999;
+  }
+
   updateCurrentMessage(event) {
     this.setState({
-      currentMessage: event.target.value
+      currentMessage: event.target.value,
     });
   }
 
-  update(field) {
-    return (e) => {
-      this.setState({ [field]: e.target.value });
-    };
-  }
   // CAN JUST USE REDUX STATE TO FETCHMESSAGES DONT NEED A LOCAL STATE
   handleSendEvent(e) {
     e.preventDefault();
@@ -80,10 +90,6 @@ class Chatroom extends React.Component {
     }
   }
 
-  // THIS CURRENTLY WOULD RENDER ALL MESSAGES
-  // WOULD I WANT TO BREAKOUT THE FORM PART OF THE COMPONENT?
-  // HOW DO I GO ABOUT COMBINING THOSE IF I DO?
-  // ADD MESSAGE INDEX COMPONENT
   render() {
       return (
         <div>
@@ -95,7 +101,7 @@ class Chatroom extends React.Component {
 
             <div className="chat_container">
               <header className="chatroom_header">Chat Room</header>
-              <div className="chatlog_container">
+              <div id="chat_scroll" className="chatlog_container">
                 <ul className="chatlog">
                   {this.props.messages.map(message => (
                     <MessageIndexItem key={message.id} message={message}/>
@@ -103,6 +109,7 @@ class Chatroom extends React.Component {
                   { this.renderChatLog() }
                 </ul>
               </div>
+
               <footer className="message_footer_container">
                 <button className="message_add_file">A</button>
                 <input type="text"
