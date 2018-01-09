@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import MessageForm from './message_form';
-import { createMessage } from '../../actions/chatroom_actions';
+import { receiveMessage } from '../../actions/message_actions';
 
 const mapStateToProps = (state) => {
-  let message = {content: ""};
-
-  return { message };
+  return ({
+    currentMessage: '',
+    currentUser: state.session.currentUser
+  });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // create Message is being called in chatroom channel when speak is Called
-
-    createMessage: message => dispatch(createMessage(message))
+    receiveMessage: message => dispatch(receiveMessage(message))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
+export default connect(mapStateToProps,
+  mapDispatchToProps)(MessageForm);

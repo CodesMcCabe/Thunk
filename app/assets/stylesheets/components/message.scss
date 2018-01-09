@@ -1,0 +1,41 @@
+.message_container {
+  margin: 0 0 1rem 1.25rem;
+  display: flex;
+  // flex-direction: row;
+  position: relative;
+  height: 100%;
+}
+
+.message_data_container {
+  width: 95%;
+}
+
+.message_container p {
+  margin-bottom: 0;
+  padding-left: .5rem;
+}
+
+.message_avatar {
+  width: 3%;
+  height: 100%;
+}
+
+p.message_content {
+  font-size: 15px;
+}
+
+p.message_username {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+p.message_time {
+  color: #717274;
+  opacity: 1;
+  font-size: 12px;
+}
+
+.message_header p{
+  display: inline;
+  padding-right: .5rem;
+}
