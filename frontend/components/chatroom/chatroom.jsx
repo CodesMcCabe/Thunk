@@ -7,13 +7,7 @@ import MessageFormContainer from '../message_form/message_form_container';
 class Chatroom extends React.Component {
   constructor(props) {
     super(props);
-    // CURRENT MESSAGE SHOULD BE LOCAL STATE OF FORM COMPONENT
-    // INSTEAD OF CHATLOGS, CHANGE GLOBAL STATE
-    // FIX WILL ALLOW FOR SCROLL FIX WHEN IN MID-CHAT
-    // this.state = {
-    //   currentMessage: '',
-    //   chatLogs: [],
-    // };
+
     this.scrollLastMessage = this.scrollLastMessage.bind(this);
   }
 
@@ -24,8 +18,7 @@ class Chatroom extends React.Component {
   }
 
   componentDidMount() {
-    // this.createSocket();
-    this.props.fetchMessages();
+    this.props.fetchUsers().then(this.props.fetchMessages);
   }
 
   componentDidUpdate() {
@@ -36,62 +29,7 @@ class Chatroom extends React.Component {
     document.getElementById('chat_scroll').scrollTop = 9999999;
   }
 
-  // updateCurrentMessage(event) {
-  //   this.setState({
-  //     currentMessage: event.target.value,
-  //   });
-  // }
-
-  // CAN JUST USE REDUX STATE TO FETCHMESSAGES DONT NEED A LOCAL STATE
-  // handleSendEvent(e) {
-  //   e.preventDefault();
-  //   this.chats.create({
-  //     content: this.state.currentMessage,
-  //     user_id: this.props.currentUser.id,
-  //     channel_id: 1
-  //   });
-  //   this.setState({currentMessage: ''});
-  // }
-
-//   renderChatLog() {
-//   return this.state.chatLogs.map((el) => {
-//     return (
-//       <li key={`chat_${el.id}`}>
-//         <span>{ el.content }</span>
-//       </li>
-//     );
-//   });
-// }
-
-  // createSocket() {
-  //   let cable = ActionCable.createConsumer();
-  //   this.chats = cable.subscriptions.create({
-  //   channel: 'ChatroomChannel'
-  // }, {
-  //   connected: () => {},
-  //   received: (data) => {
-  //     let chatLogs = this.state.chatLogs;
-  //     chatLogs.push(data);
-  //     this.setState({ chatLogs: chatLogs });
-  //   },
-  //   create: function(chatContent) {
-  //     this.perform('create', {
-  //       content: chatContent.content,
-  //       user_id: chatContent.user_id,
-  //       channel_id: chatContent.channel_id
-  //     });
-  //   }
-  // });
-  // }
-
-  // handleChatInputKeyPress(e) {
-  //   if(e.key === 'Enter') {
-  //     this.handleSendEvent(e);
-  //   }
-  // }
-
-
-  // WAS RENDERING CHAT LOGS
+  // CAN PROB ADD DELETE METHOD FOR MESSAGE ITEM
   render() {
       return (
         <div>
@@ -106,7 +44,10 @@ class Chatroom extends React.Component {
               <div id="chat_scroll" className="chatlog_container">
                 <ul className="chatlog">
                   {this.props.messages.map(message => (
-                    <MessageIndexItem key={message.id} message={message}/>
+                    <MessageIndexItem
+                      key={message.id}
+                      message={message}
+                      user={this.props.users[message.user_id]}/>
                   ))}
                 </ul>
               </div>

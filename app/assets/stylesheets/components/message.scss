@@ -1,0 +1,40 @@
+.message_container {
+  margin: 0 0 1rem 0;
+  display: flex;
+  // flex-direction: row;
+  position: relative;
+  height: 100%;
+}
+
+.message_data_container {
+  width: 95%;
+}
+
+.message_container p {
+  margin-bottom: 0;
+  padding-left: .5rem;
+}
+
+.message_avatar {
+  width: 3%;
+  height: 100%;
+}
+
+.message_content {
+  // display: flex;
+  // flex-direction: column;
+  // position: absolute;
+  // bottom: 0;
+  // width: auto;
+}
+
+.message_username {
+  font-weight: bold;
+}
+
+.message_header p{
+  display: inline;
+  // padding-left: .5rem;
+  padding-right: .5rem;
+  // float: left;
+}

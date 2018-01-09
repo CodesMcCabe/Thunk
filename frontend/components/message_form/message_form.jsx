@@ -15,12 +15,6 @@ class MessageForm extends React.Component {
     this.createSocket();
   }
 
-  // handleKeyPress(e) {
-  //   e.preventDefault();
-  //   if (e.key === 'Enter') {
-  //     // some function to handle message through correct channel
-  //   }
-  // }
   updateCurrentMessage(event) {
     this.setState({
       currentMessage: event.target.value,
@@ -55,9 +49,6 @@ class MessageForm extends React.Component {
           this.props.receiveMessage(data.message);
         break;
       }
-      // let chatLogs = this.state.chatLogs;
-      // chatLogs.push(data);
-      // this.setState({ chatLogs: chatLogs });
     },
     create: function(chatContent) {
       this.perform('create', {
