@@ -20,21 +20,22 @@
   height: 100%;
 }
 
-.message_content {
-  // display: flex;
-  // flex-direction: column;
-  // position: absolute;
-  // bottom: 0;
-  // width: auto;
+p.message_content {
+  font-size: 15px;
 }
 
-.message_username {
+p.message_username {
   font-weight: bold;
+  font-size: 15px;
+}
+
+p.message_time {
+  color: #717274;
+  opacity: 1;
+  font-size: 12px;
 }
 
 .message_header p{
   display: inline;
-  // padding-left: .5rem;
   padding-right: .5rem;
-  // float: left;
 }
