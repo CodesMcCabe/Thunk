@@ -1,4 +1,4 @@
-class ChatMessageBroadcastJob < ApplicationJob
+class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(chat_message)

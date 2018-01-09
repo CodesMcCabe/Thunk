@@ -1,40 +1,55 @@
 import React from 'react';
 import SidebarContainer from '../sidebar/sidebar_container';
-// import Message from './message';
+import MessageIndexItem from './message_index_item';
 // import ActionCable from 'actioncable';
 
 class Chatroom extends React.Component {
   constructor(props) {
     super(props);
-
+    // CURRENT MESSAGE SHOULD BE LOCAL STATE OF FORM COMPONENT
+    // INSTEAD OF CHATLOGS, CHANGE GLOBAL STATE
+    // FIX WILL ALLOW FOR SCROLL FIX WHEN IN MID-CHAT
     this.state = {
-      currentChatMessage: '',
-      chatLogs: []
+      currentMessage: '',
+      chatLogs: [],
     };
-
+    this.scrollLastMessage = this.scrollLastMessage.bind(this);
   }
 
+  componentWillReceiveProps (nextProps) {
+    if(this.props.messages !== nextProps.messages) {
+      this.scrollLastMessage();
+    }
+  }
 
   componentDidMount() {
     this.createSocket();
+    this.props.fetchMessages();
   }
 
-  updateCurrentChatMessage(event) {
+  componentDidUpdate() {
+    this.scrollLastMessage();
+  }
+
+  scrollLastMessage () {
+    document.getElementById('chat_scroll').scrollTop = 9999999;
+  }
+
+  updateCurrentMessage(event) {
     this.setState({
-      currentChatMessage: event.target.value
+      currentMessage: event.target.value,
     });
   }
 
-  update(field) {
-    return (e) => {
-      this.setState({ [field]: e.target.value });
-    };
-  }
   // CAN JUST USE REDUX STATE TO FETCHMESSAGES DONT NEED A LOCAL STATE
   handleSendEvent(e) {
     e.preventDefault();
-    this.chats.create(this.state.currentChatMessage);
-    this.setState({currentChatMessage: ''});
+    this.chats.create({
+      content: this.state.currentMessage,
+      user_id: this.props.currentUser.id,
+      channel_id: 1
+    });
+    this.setState({currentMessage: ''});
   }
 
   renderChatLog() {
@@ -60,7 +75,9 @@ class Chatroom extends React.Component {
     },
     create: function(chatContent) {
       this.perform('create', {
-        content: chatContent
+        content: chatContent.content,
+        user_id: chatContent.user_id,
+        channel_id: chatContent.channel_id
       });
     }
   });
@@ -72,10 +89,6 @@ class Chatroom extends React.Component {
     }
   }
 
-  // THIS CURRENTLY WOULD RENDER ALL MESSAGES
-  // WOULD I WANT TO BREAKOUT THE FORM PART OF THE COMPONENT?
-  // HOW DO I GO ABOUT COMBINING THOSE IF I DO?
-  // ADD MESSAGE INDEX COMPONENT
   render() {
       return (
         <div>
@@ -87,17 +100,21 @@ class Chatroom extends React.Component {
 
             <div className="chat_container">
               <header className="chatroom_header">Chat Room</header>
-              <div className="chatlog_container">
+              <div id="chat_scroll" className="chatlog_container">
                 <ul className="chatlog">
+                  {this.props.messages.map(message => (
+                    <MessageIndexItem key={message.id} message={message}/>
+                  ))}
                   { this.renderChatLog() }
                 </ul>
               </div>
+
               <footer className="message_footer_container">
                 <button className="message_add_file">A</button>
                 <input type="text"
                   onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
-                  value={this.state.currentChatMessage}
-                  onChange={ (e) => this.updateCurrentChatMessage(e)}
+                  value={this.state.currentMessage}
+                  onChange={ (e) => this.updateCurrentMessage(e)}
                   placeholder="Enter your message..."
                   className="message_box"/>
               </footer>

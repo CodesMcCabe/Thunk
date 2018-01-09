@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => {
   return({
 
     // user_ids: state.users.subscriptions[ownProps.match.params.channelId],
-    messages: Object.values(state.messages)
+    messages: Object.values(state.messages),
+    currentUser: state.session.currentUser
     // channelId: ownProps.match.params.channelId
   });
 };
