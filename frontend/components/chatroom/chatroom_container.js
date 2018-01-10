@@ -7,7 +7,6 @@ import { fetchChannels } from '../../actions/channel_actions';
 import { logout } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
   return({
     users: Object.values(state.users),
     // user_ids: state.users.subscriptio}ns[ownProps.match.params.channelId],
