@@ -19,6 +19,7 @@ class Chatroom extends React.Component {
 
   componentDidMount() {
     this.props.fetchUsers().then(this.props.fetchMessages);
+    this.props.fetchChannels();
   }
 
   componentDidUpdate() {
