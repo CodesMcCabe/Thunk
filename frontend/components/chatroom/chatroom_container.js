@@ -5,14 +5,27 @@ import { fetchUsers } from '../../actions/user_actions';
 import { fetchChannels } from '../../actions/channel_actions';
 import { logout } from '../../actions/session_actions';
 
+
 const mapStateToProps = (state, ownProps) => {
+  // iterate over the message ids within the channel and pull those from
+  // global state
+  let messages = [];
+  let currentChannelId;
+  if (Object.values(state.channels).length)  {
+    currentChannelId = ownProps.match.params.id;
+    messages = state.channels[currentChannelId].messageIds.map(messageId => {
+      return (
+        state.messages[messageId]
+      );
+    });
+  }
   return({
     users: state.users,
     // user_ids: state.users.subscriptio}ns[ownProps.match.params.channelId],
-    messages: Object.values(state.messages),
+    messages: messages.reverse(),
     currentUser: state.session.currentUser,
-    channels: Object.values(state.channels)
-    // channelId: ownProps.match.params.channelId
+    channels: Object.values(state.channels),
+    currentChannel: state.channels[currentChannelId]
   });
 };
 

@@ -6,39 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Channel.destroy_all
-
-channels = [
-  ['test channel 1', 1],
-  ['test channel 2', 2]
-]
-
-channels.each do |channel|
-  Channel.create!(title: channel[0], admin_id: channel[1])
-end
 
 
 
-User.destroy_all
 
-users = [
-  ['demo-user', 'password'],
-  ['cody', 'password']]
+User.delete_all
+Message.delete_all
+Channel.delete_all
 
-users.each do |user|
-  User.create!(username: user[0], password: user[1])
-end
-
-Message.destroy_all
-
-messages = [
-  [1, "CONTENT 1", 1],
-  [2, "CONTENT 2", 1],
-  [1, "CONTENT 3", 1],
-  [2, "CONTENT 4", 1]
-]
-
-message.each do |message|
-  Message.create!(user_id: messages[0], content: messages[1],
-    channel_id: messages[2] )
-end
+u1 = User.create!(username: "demo-user", password: "password")
+u2 = User.create!(username: "cody", password: "password")
+c1 = Channel.create!(title: 'general', admin_id: u1.id)
+c2 = Channel.create!(title: 'random', admin_id: u2.id)
+Message.create!(user_id: u1.id, channel_id: c1.id, content: "hey")
+Message.create!(user_id: u2.id, channel_id: c1.id, content: "hello!")
+Message.create!(user_id: u1.id, channel_id: c2.id, content: "hi")
+Message.create!(user_id: u1.id, channel_id: c2.id, content: ":D")

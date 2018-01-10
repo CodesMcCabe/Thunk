@@ -7,7 +7,6 @@ class MessageForm extends React.Component {
     this.state = {
       currentMessage: this.props.currentMessage,
       currentUser: this.props.currentUser,
-      chatLogs: []
     };
   }
 
@@ -32,7 +31,7 @@ class MessageForm extends React.Component {
     this.chats.create({
       content: this.state.currentMessage,
       user_id: this.state.currentUser.id,
-      channel_id: 1
+      channel_id: this.props.currentChannel.id
     });
     this.setState({currentMessage: ''});
   }
@@ -44,6 +43,7 @@ class MessageForm extends React.Component {
   }, {
     connected: () => {},
     received: (data) => {
+  
       switch (data.action) {
         case 'receiveMessage':
           this.props.receiveMessage(data.message);

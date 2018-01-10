@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import MessageForm from './message_form';
 import { receiveMessage } from '../../actions/message_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
     currentMessage: '',
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    currentChannel: ownProps.currentChannel
   });
 };
 

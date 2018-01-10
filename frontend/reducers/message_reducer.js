@@ -3,7 +3,6 @@ import { RECEIVE_ALL_MESSAGES,
 
 const messageReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
-
   switch (action.type) {
     case RECEIVE_ALL_MESSAGES:
       return Object.assign({}, oldState, action.messages);

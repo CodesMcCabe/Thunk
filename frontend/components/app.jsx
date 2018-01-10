@@ -11,7 +11,6 @@ const App = () => (
     <header>
     </header>
     <Switch>
-      <ProtectedRoute exact path="/channels/" component={ChatroomContainer}/>
       <ProtectedRoute exact path="/channels/:id" component={ChatroomContainer}/>
       <Route path="/" component={Homepage}/>
     </Switch>

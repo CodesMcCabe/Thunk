@@ -26,12 +26,12 @@ export const deleteChannel = (channelId) => {
   );
 };
 
-// export const subscribeChannel = (id) => {
-//   return (
-//     $.ajax({
-//       method: 'patch',
-//       url: `api/channels/${id}`,
-//       data:
-//     })
-//   );
-// };
+export const subscribeChannel = (payload) => {
+  return (
+    $.ajax({
+      method: 'patch',
+      url: `api/channels/${payload.user_id}`,
+      data: {payload}
+    })
+  );
+};
