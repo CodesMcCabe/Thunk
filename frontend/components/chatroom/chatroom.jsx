@@ -44,12 +44,14 @@ class Chatroom extends React.Component {
               <header className="chatroom_header">Chat Room</header>
               <div id="chat_scroll" className="chatlog_container">
                 <ul className="chatlog">
-                  {this.props.messages.map(message => (
+                  {this.props.messages.map(message => {
+                    return (
                     <MessageIndexItem
                       key={message.id}
                       message={message}
                       user={this.props.users[message.user_id]}/>
-                  ))}
+                    );
+                  })}
                 </ul>
               </div>
                 {<MessageFormContainer />}
