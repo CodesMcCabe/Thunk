@@ -4,11 +4,6 @@ import moment from 'moment';
 const MessageIndexItem = ({ user, message }) => {
   // ADD PROFILE PICTURE IN IMAGE SPOT
   // UPDATE USER MODEL TO ACCEPT A PROFILE PIC
-  if (!user) {
-    return (
-      <p>Loading...</p>
-    );
-  }
 
   return (
     <li className="message_container">

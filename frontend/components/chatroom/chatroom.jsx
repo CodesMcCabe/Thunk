@@ -47,8 +47,7 @@ class Chatroom extends React.Component {
                   {console.log(this.props)}
                   {this.props.messages.map(message => {
                     console.log("message", message);
-                    const anything = this;
-                    debugger
+                    console.log("user", this.props.users[message.user_id]);
                     return (
                     <MessageIndexItem
                       key={message.id}
