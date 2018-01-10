@@ -44,10 +44,7 @@ class Chatroom extends React.Component {
               <header className="chatroom_header">Chat Room</header>
               <div id="chat_scroll" className="chatlog_container">
                 <ul className="chatlog">
-                  {console.log(this.props)}
                   {this.props.messages.map(message => {
-                    console.log("message", message);
-                    console.log("user", this.props.users[message.user_id]);
                     return (
                     <MessageIndexItem
                       key={message.id}
