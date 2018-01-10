@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  session_token   :string           not null
+#  password_digest :string           not null
+#
+
 class User < ApplicationRecord
   validates :password, length: {minimum: 1, allow_nil: true}
   validates :username, :password_digest, :session_token, presence: true
@@ -6,6 +18,12 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :messages
+
+  has_many :channels
+
+  has_many :channel_subscriptions
+
+
 
   after_initialize :ensure_session_token
 
