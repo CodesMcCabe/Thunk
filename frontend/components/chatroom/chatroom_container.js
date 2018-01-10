@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import Chatroom from './chatroom';
-import { fetchMessages,
-  fetchMessage, sendMessage } from '../../actions/message_actions';
+import { fetchMessages } from '../../actions/message_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import { fetchChannels } from '../../actions/channel_actions';
 import { logout } from '../../actions/session_actions';

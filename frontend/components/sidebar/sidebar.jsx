@@ -1,4 +1,5 @@
 import React from 'react';
+import ChannelIndexContainer from '../channel/channel_index_container';
 
 class Sidebar extends React.Component {
 
@@ -8,6 +9,9 @@ class Sidebar extends React.Component {
       <p className="welcome_header">{this.props.currentUser.username}</p>
       <button className="logout_btn"
         onClick={ this.props.logout }>Log out</button>
+      <div className="sidebar_scroll">
+        {<ChannelIndexContainer />}
+      </div>
     </div>
     );
   }

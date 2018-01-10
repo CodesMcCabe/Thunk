@@ -1,10 +1,12 @@
 .message_container {
   margin: 0 0 1rem 1.25rem;
   display: flex;
-  // flex-direction: row;
   position: relative;
   height: 100%;
 }
+
+// flex children min width
+// otherwise resize
 
 .message_data_container {
   width: 95%;
@@ -23,6 +25,7 @@
   width: 3%;
   height: 100%;
   margin-right: .5rem;
+  min-width: 48px;
 }
 
 p.message_content {

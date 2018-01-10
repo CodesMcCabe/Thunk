@@ -37,7 +37,6 @@ class Chatroom extends React.Component {
           <div className="chatroom_page">
             <div className="sidebar_container">
               <div className="sidebar_header">{<SidebarContainer />}</div>
-              <div className="sidebar_scroll">Channels</div>
             </div>
 
             <div className="chat_container">

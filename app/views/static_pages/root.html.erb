@@ -6,6 +6,8 @@
     ).html_safe %>
   <% end %>
 
+  window.defaultChannel = <%= Channel.first.id %>
+
   window.staticImages = {
     hazard: '<%= asset_url("hazard.png") %>'
   }

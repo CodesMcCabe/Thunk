@@ -29,8 +29,10 @@
   bottom: 0;
   width: 88%;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .message_add_file {
@@ -50,6 +52,7 @@
   background-color: #fff;
   color: #a0a0a2;
   width: 3%;
+  min-width: 49px;
 }
 
 .message_add_file:hover {
