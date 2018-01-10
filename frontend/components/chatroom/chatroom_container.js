@@ -8,7 +8,7 @@ import { logout } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return({
-    users: Object.values(state.users),
+    users: state.users,
     // user_ids: state.users.subscriptio}ns[ownProps.match.params.channelId],
     messages: Object.values(state.messages),
     currentUser: state.session.currentUser,
