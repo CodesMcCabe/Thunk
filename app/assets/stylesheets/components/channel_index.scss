@@ -18,14 +18,102 @@
   flex-direction: column;
 }
 
+button.add_channel_button:hover {
+  color: #fff;
+  border-color: #fff;
+  cursor: pointer;
+}
+
+// button.add_channel_button {
+//   display: block;
+//     border: 2px solid white;
+//     border-radius: 50%;
+//     height: 20px;
+//     width: 20px;
+// }
+//
+// .cssCircle {
+//   position: absolute;
+//     top: -7px;
+//     left: 2px;
+// }
+button.add_channel_button:focus {
+  outline: 0;
+}
+
 button.add_channel_button {
   margin-top: 5px;
-  height: 15px;
+  margin-right: 5px;
+  // height: 15px;
   float: right;
-  right: 0;
-  bottom: 0;
+  // right: 0;
+  // bottom: 0;
+
   justify-content: center;
+
+  color: #ab9ba9;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+  behavior: url(PIE.htc);
+
+  width: 16px;
+  height: 16px;
+  padding: 0px;
+  // padding-bottom: 1px;
+
+  background: none;
+  border: 1.5px solid #ab9ba9;
+  // color: #003580;
+  text-align: center;
+  -webkit-transition: background 0.1s linear;
+  -moz-transition: background 0.1s linear;
+  -ms-transition: background 0.1s linear;
+  -o-transition: background 0.1s linear;
+  transition: background 0.1s linear;
+  transition: color 0.2s linear;
+
+  line-height: 1.1rem;
+  // font-size: 20px;
+  //   font-style: normal;
+  //   font-weight: normal;
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   width: 20px;
+  //   opacity: 0.64;
+  //   line-height: 100%;
+  font: 13px Arial, sans-serif
 }
+
+.cssCircle {
+  // margin-bottom: 10px;
+  // font-weight: bold;
+}
+//
+// .cssCircle {
+//   margin-bottom: 5px;
+//   // -webkit-border-radius: 999px;
+//   // -moz-border-radius: 999px;
+//   // border-radius: 999px;
+//   // behavior: url(PIE.htc);
+//   //
+//   // width: 13px;
+//   // height: 13px;
+//   // padding: 0px;
+//   //
+//   // background: #779BCA;
+//   // border: 1px solid #003580;
+//   // color: #003580;
+//   // text-align: center;
+//   // -webkit-transition: background 0.2s linear;
+//   // -moz-transition: background 0.2s linear;
+//   // -ms-transition: background 0.2s linear;
+//   // -o-transition: background 0.2s linear;
+//   // transition: background 0.2s linear;
+//   // transition: color 0.2s linear;
+//   //
+//   // font: 13px Arial, sans-serif
+// }
 
 .channel_list {
 

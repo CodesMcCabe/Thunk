@@ -62,9 +62,13 @@ class ChannelModal extends React.Component {
     };
 
     return(
-      <div>
+      <div className="channel_header">
         <button className="add_channel_button"
-          onClick={this.openModal}>Open Me!</button>
+          onClick={this.openModal}>
+          <div class="cssCircle">
+            +
+          </div>
+        </button>
 
         <Modal isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
