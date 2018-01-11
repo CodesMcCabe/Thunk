@@ -19,10 +19,13 @@ class User < ApplicationRecord
 
   has_many :messages
 
-  has_many :channels
+
 
   has_many :channel_subscriptions
 
+  has_many :channels,
+  through: :channel_subscriptions,
+  source: :channel
 
 
   after_initialize :ensure_session_token

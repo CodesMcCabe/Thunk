@@ -7,7 +7,18 @@
   z-index: 2;
   min-width: 222px;
   flex-direction: column;
+  overflow-y: auto;
+  // transition: overflow-y 5s ease;
 }
+
+// .sidebar_container:hover {
+//   // overflow-y: scroll;
+// }
+
+// .scroll_track {
+//   display: inline;
+//   height: 100%;
+// }
 
 .sidebar_header {
   top: 0;

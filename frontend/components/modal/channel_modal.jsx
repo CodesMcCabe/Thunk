@@ -28,6 +28,7 @@ class ChannelModal extends React.Component {
     e.preventDefault();
     const channel = Object.assign({}, this.state);
     this.props.createChannel({channel});
+    this.closeModal();
   }
 
   closeModal() {
@@ -65,7 +66,7 @@ class ChannelModal extends React.Component {
       <div className="channel_header">
         <button className="add_channel_button"
           onClick={this.openModal}>
-          <div class="cssCircle">
+          <div className="cssCircle">
             +
           </div>
         </button>

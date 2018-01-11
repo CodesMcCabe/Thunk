@@ -4,9 +4,20 @@ import { withRouter } from 'react-router-dom';
 import { createChannel } from '../../actions/channel_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  // pull channels that have an id that is within the channelSubs array
+  let channels = [];
+
+  if(Object.values(state.channels).length > 0) {
+    channels = state.session.currentUser.channelSubs.map(channelId => {
+      return (
+        state.channels[channelId]
+      );
+    });
+
+  }
+
+
   return({
-    channels: Object.values(state.channels)
+    channels: channels
   });
 };
 

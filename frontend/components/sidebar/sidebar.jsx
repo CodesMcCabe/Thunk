@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
     <div>
       <div className="sidebar_header">
         #{this.props.currentChannelTitle}
-      
+
         <div className="welcome_header">
           {this.props.currentUser.username}
         </div>
@@ -26,7 +26,7 @@ class Sidebar extends React.Component {
           onClick={ this.props.logout }>Log out</button>
       </div>
 
-        <ChannelIndexContainer/>
+      <ChannelIndexContainer/>
 
     </div>
     );
