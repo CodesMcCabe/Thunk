@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   // global state
   let messages = [];
   let currentChannelId;
-  if (Object.values(state.channels).length)  {
+  if (Object.values(state.channels).length > 0)  {
     currentChannelId = ownProps.match.params.id;
     messages = state.channels[currentChannelId].messageIds.map(messageId => {
       return (
