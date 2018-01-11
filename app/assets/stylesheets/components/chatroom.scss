@@ -5,7 +5,7 @@
 }
 
 .chat_container {
-  width: 88%;
+  width: calc(100% - 222px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +21,7 @@
   top: 0;
   float: left;
   height: 64px;
-  width: 88%;
+  width: calc(100% - 222px);
   text-align: center;
   border-bottom: 1px solid #e8e8e8;
   box-shadow: inset 1px 0 0 0 #e8e8e8;
@@ -39,13 +39,14 @@
 .message_footer_container {
   position: fixed;
   bottom: 0;
-  width: 88%;
+  width: calc(100% - 222px);
   display: flex;
   justify-content: left;
   align-items: center;
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  flex-shrink: 1;
 }
 
 .message_footer_container {
@@ -91,6 +92,7 @@ footer > input.message_box {
   border-left: 1px solid rgba(160,160,162,.7);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  flex-shrink: 1;
 }
 
 footer > input.message_box:focus {

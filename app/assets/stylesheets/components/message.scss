@@ -2,6 +2,7 @@
   margin: 0 0 1rem 1.25rem;
   display: flex;
   position: relative;
+  min-width: 250px;
   height: 100%;
 }
 
@@ -12,6 +13,10 @@
 .message_container p {
   margin-bottom: 0;
   padding-left: .5rem;
+}
+
+.message_content_container {
+  display: block;
 }
 
 .message_container:hover {
@@ -32,8 +37,11 @@
   height: 36px;
 }
 
+
+
 p.message_content {
   font-size: 15px;
+
 }
 
 p.message_username {
@@ -50,4 +58,6 @@ p.message_time {
 .message_header p{
   display: inline;
   padding-right: .5rem;
+  font-size: 15px;
+  white-space: wrap;
 }

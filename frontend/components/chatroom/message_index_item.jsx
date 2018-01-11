@@ -18,8 +18,10 @@ const MessageIndexItem = ({ user, message }) => {
               {moment(message.created_at).format('LT')}
             </p>
           </div>
-          <div className="message_content">
-            <p>{message.content}</p>
+          <div className="message_content_container">
+            <div className="message_content">
+              <p>{message.content}</p>
+            </div>
           </div>
         </div>
     </li>

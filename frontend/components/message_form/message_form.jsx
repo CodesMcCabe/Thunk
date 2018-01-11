@@ -10,6 +10,10 @@ class MessageForm extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    this.chats.unsubscribe();  
+  }
+
   componentDidMount() {
     this.createSocket();
   }
