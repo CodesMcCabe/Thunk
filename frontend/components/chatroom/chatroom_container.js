@@ -23,7 +23,7 @@ const mapStateToProps = (state, ownProps) => {
   return({
     users: state.users,
     // user_ids: state.users.subscriptio}ns[ownProps.match.params.channelId],
-    messages: messages.reverse(),
+    messages: messages,
     currentUser: state.session.currentUser,
     channels: Object.values(state.channels),
     currentChannel: state.channels[currentChannelId]
