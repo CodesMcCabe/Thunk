@@ -12,7 +12,7 @@ export const createChannel = (channel) => {
     $.ajax({
       method: 'post',
       url: 'api/channels',
-      data: {channel}
+      data: channel
     })
   );
 };

@@ -6,11 +6,28 @@ class ChannelModal extends React.Component {
     super(props);
 
     this.state = {
-      modalOpen: false
+      modalOpen: false,
+      title: "",
+      purpose: "",
+      invites: "",
+      admin_id: this.props.admin_id
     };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+  }
+
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const channel = Object.assign({}, this.state);
+    this.props.createChannel({channel});
   }
 
   closeModal() {
@@ -62,15 +79,15 @@ class ChannelModal extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <label>Name
               <input type="text"
-                value={this.state.name}
-                onChange={this.update('name')}/>
+                value={this.state.title}
+                onChange={this.update('title')}/>
               <div>Names must be lowercase, without spaces or periods, around
               shorter than 22 characters.</div>
             </label>
 
             <label>Purpose(optional)
               <input type="text"
-                value={this.state.name}
+                value={this.state.purpose}
                 onChange={this.update('purpose')}/>
               <div>What's this channel about?</div>
             </label>

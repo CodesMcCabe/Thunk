@@ -4,10 +4,13 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
+    # debugger
     @channel = Channel.new(channel_params)
     if @channel.save
-      create_sub(@channel.id, @channel.admin_id)
-      render
+      # debugger
+      payload = {channel_id: @channel.id, user_id: @channel.admin_id}
+      update(payload)
+      render 'api/channels/show'
     else
       render json: {}
     end
@@ -22,7 +25,8 @@ class Api::ChannelsController < ApplicationController
   end
 
   def update(payload)
-    ChannelSubscription.create(payload.channel_id, payload.user_id)
+    # debugger
+    ChannelSubscription.create(payload)
   end
 
 
