@@ -21,11 +21,16 @@
   background-color: #f9f9f9;
 }
 
-.message_avatar {
+.message_avatar_container {
   width: 3%;
   height: 100%;
   margin-right: .5rem;
   min-width: 48px;
+}
+
+.member_avatar {
+  width: 36px;
+  height: 36px;
 }
 
 p.message_content {

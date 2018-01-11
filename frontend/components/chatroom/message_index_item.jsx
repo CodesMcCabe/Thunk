@@ -7,7 +7,10 @@ const MessageIndexItem = ({ user, message }) => {
 
   return (
     <li className="message_container">
-        <div className="message_avatar">Image</div>
+        <div className="message_avatar_container">
+          <img className="member_avatar"
+            src={window.staticImages.member_avatar}/>
+        </div>
         <div className="message_data_container">
           <div className="message_header">
             <p className="message_username">{user.username}</p>

@@ -22,7 +22,9 @@ class Greeting extends React.Component {
   render () {
     return(
       <nav className="top persistent">
-        <h1 className="logo">Thunk</h1>
+        <div>
+          <img className="logo" src={window.staticImages.logo} />
+        </div>
         <ul>
           <li>{this.renderLoginHeader(this.props)}</li>
         </ul>
