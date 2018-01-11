@@ -19,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
       );
     });
   }
+
   return({
     users: state.users,
     // user_ids: state.users.subscriptio}ns[ownProps.match.params.channelId],

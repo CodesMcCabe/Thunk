@@ -12,7 +12,7 @@ const channelReducer = (oldState = {}, action) => {
         {[action.channel.id]: action.channel});
     case RECEIVE_MESSAGE:
       const channel = merge({}, oldState[action.message.channel_id]);
-      channel.messageIds.push(action.message.id);
+      channel.messageIds.unshift(action.message.id);
       return Object.assign({}, oldState, {[channel.id]: channel});
     case REMOVE_CHANNEL:
       let newState = Object.assign({}, oldState);

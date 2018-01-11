@@ -43,7 +43,6 @@ class MessageForm extends React.Component {
   }, {
     connected: () => {},
     received: (data) => {
-  
       switch (data.action) {
         case 'receiveMessage':
           this.props.receiveMessage(data.message);

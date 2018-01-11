@@ -11,15 +11,15 @@ class ChannelIndex extends React.Component {
         <p>Channels</p>
         <button className="add_channel"></button>
         <ul>
-          <li>
             {this.props.channels.map(channel => {
               return (
-                <Link to={`/channels/${channel.id}`}>
-                  {channel.title}
-                </Link>
+                <li key={channel.id}>
+                  <Link to={`/channels/${channel.id}`}>
+                    {channel.title}
+                  </Link>
+                </li>
               );
             })}
-          </li>
         </ul>
       </div>
     );

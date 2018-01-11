@@ -37,6 +37,7 @@ class Chatroom extends React.Component {
     } else {
       currentChannelTitle = this.props.currentChannel.title;
     }
+    
     return (
       <div>
         <div className="chatroom_page">
