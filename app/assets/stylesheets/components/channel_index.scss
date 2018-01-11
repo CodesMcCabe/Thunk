@@ -1,0 +1,59 @@
+.channel_header {
+  display: flex;
+  margin-top: 25px;
+  padding-left: 15px;
+  font-size: 16px;
+  display: inline;
+  // margin-bottom: 25px;
+  position: relative;
+}
+
+.channel_header:hover {
+  font-size: 16px;
+  color: #fff;
+}
+
+.sidebar_list {
+  display: flex;
+  flex-direction: column;
+}
+
+button.add_channel_button {
+  margin-top: 5px;
+  height: 15px;
+  float: right;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+}
+
+.channel_list {
+
+}
+
+.channel_hash {
+  color: #cac4c9;
+  display: inline;
+  margin-right: 5px;
+  margin-left: 15px;
+  bottom: 0;
+}
+
+a.channel_list_item {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 900;
+  padding-left: 0;
+  width: 100%;
+  display:block;
+  padding-bottom: 5px;
+}
+
+
+
+.li_list_item:hover {
+  background: #3E313C;
+  width: 100%;
+  padding-left: 0;
+}

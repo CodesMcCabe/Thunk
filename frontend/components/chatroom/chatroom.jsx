@@ -37,12 +37,12 @@ class Chatroom extends React.Component {
     } else {
       currentChannelTitle = this.props.currentChannel.title;
     }
-    
+
     return (
       <div>
         <div className="chatroom_page">
           <div className="sidebar_container">
-            <div className="sidebar_header">{<SidebarContainer />}</div>
+            {<SidebarContainer />}
           </div>
 
           <div className="chat_container">

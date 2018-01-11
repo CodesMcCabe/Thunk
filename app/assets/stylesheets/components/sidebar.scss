@@ -1,27 +1,29 @@
 .sidebar_container {
   width: 12%;
-  display: inline-block;
+  display: flex;
   background-color: #4D394B;
   left: 0;
   color: rgb(202,196,201);
   z-index: 2;
-  min-width: 222px
+  min-width: 222px;
+  flex-direction: column;
 }
 
-.sidebar_header {
+div.sidebar_header {
   top: 0;
   color: inherit;
-
+  height: 50%;
 }
 
-
-.sidebar_scroll {
-  
+.sidebar_header_nest {
+  height: 10%;
 }
 
+.sidebar_list {
+  height: 90%;
+}
 
-
-.welcome_header {
+p.welcome_header {
   margin-left: 1rem;
   margin-top: 1rem;
   color: #ab9ba9;

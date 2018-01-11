@@ -7,20 +7,26 @@ import { Link } from 'react-router-dom';
 class ChannelIndex extends React.Component {
   render () {
     return (
-      <div>
-        <p>Channels</p>
-        <button className="add_channel"></button>
-        <ul>
+      <div className="sidebar_list">
+        <div className="channel_header">
+          Channels
+          <button className="add_channel_button"></button>
+        </div>
+        <div className="channel_list">
+          <ul>
             {this.props.channels.map(channel => {
               return (
-                <li key={channel.id}>
-                  <Link to={`/channels/${channel.id}`}>
+                <li className="li_list_item" key={channel.id}>
+                  <Link className="channel_list_item"
+                    to={`/channels/${channel.id}`}>
+                    <div className="channel_hash"># </div>
                     {channel.title}
                   </Link>
                 </li>
               );
             })}
-        </ul>
+          </ul>
+        </div>
       </div>
     );
   }
