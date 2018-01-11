@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import Sidebar from './sidebar';
 import { logout } from '../../actions/session_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return({
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    currentChannelTitle: ownProps.currentChannelTitle
   });
 };
 

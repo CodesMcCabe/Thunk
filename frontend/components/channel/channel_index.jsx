@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
 
 // ADD MODAL FOR CHANNELS
@@ -17,11 +17,11 @@ class ChannelIndex extends React.Component {
             {this.props.channels.map(channel => {
               return (
                 <li className="li_list_item" key={channel.id}>
-                  <Link className="channel_list_item"
+                  <NavLink className="channel_list_item"
                     to={`/channels/${channel.id}`}>
                     <div className="channel_hash"># </div>
                     {channel.title}
-                  </Link>
+                  </NavLink>
                 </li>
               );
             })}

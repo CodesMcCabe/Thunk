@@ -13,15 +13,27 @@
 }
 
 .chatroom_header {
+  max-height: 64px;
+
   z-index: 1;
   background-color: #fff;
   position:fixed;
   top: 0;
-  height: 10%;
+  float: left;
+  height: 64px;
   width: 88%;
   text-align: center;
   border-bottom: 1px solid #e8e8e8;
   box-shadow: inset 1px 0 0 0 #e8e8e8;
+}
+
+.header_channel {
+  float: left;
+  color: black;
+  font-weight: 900;
+  font-size: 18px;
+  margin-top: 0.5rem;
+  margin-left: 2rem;
 }
 
 .message_footer_container {
@@ -33,14 +45,15 @@
   align-items: center;
   margin-left: 1rem;
   margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .message_add_file {
+
   font-size: 1.25rem;
   line-height: normal;
   padding: .75rem;
-  border: 1px solid #a0a0a2;
-  border-radius: .25rem;
+  border-radius: .4rem;
   outline: 0;
   color: #2c2d30;
   max-width: 100%;
@@ -53,6 +66,9 @@
   color: #a0a0a2;
   width: 3%;
   min-width: 49px;
+  border: 2px solid rgba(160,160,162,.7);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .message_add_file:hover {
@@ -60,9 +76,15 @@
   color: #fff;
 }
 
-.message_box {
+footer > input.message_box {
+  border-radius: .4rem;
   width: 95%;
+  border: 2px solid rgba(160,160,162,.7);
+  border-left: 1px solid rgba(160,160,162,.7);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
+
 
 
 .chatlog_container {

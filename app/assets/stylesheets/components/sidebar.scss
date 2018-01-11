@@ -9,10 +9,13 @@
   flex-direction: column;
 }
 
-div.sidebar_header {
+.sidebar_header {
   top: 0;
-  color: inherit;
-  height: 50%;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 .sidebar_header_nest {
@@ -23,10 +26,11 @@ div.sidebar_header {
   height: 90%;
 }
 
-p.welcome_header {
-  margin-left: 1rem;
-  margin-top: 1rem;
+.welcome_header {
+  font-size: .875rem;
   color: #ab9ba9;
+  font-weight: normal;
+  opacity: 1;
 }
 
 .welcome_header:hover {

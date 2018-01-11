@@ -2,6 +2,7 @@ import React from 'react';
 import SidebarContainer from '../sidebar/sidebar_container';
 import MessageIndexItem from './message_index_item';
 import MessageFormContainer from '../message_form/message_form_container';
+import { Route } from 'react-router-dom';
 
 class Chatroom extends React.Component {
   constructor(props) {
@@ -42,12 +43,16 @@ class Chatroom extends React.Component {
       <div>
         <div className="chatroom_page">
           <div className="sidebar_container">
-            {<SidebarContainer />}
+            <Route render={() => <SidebarContainer
+                currentChannelTitle={currentChannelTitle}/>} />
           </div>
 
           <div className="chat_container">
             <header className="chatroom_header">
-              {currentChannelTitle}</header>
+              <div className="header_channel">
+                #{currentChannelTitle}
+              </div>
+            </header>
             <div id="chat_scroll" className="chatlog_container">
               <ul className="chatlog">
                 {this.props.messages.map(message => {
