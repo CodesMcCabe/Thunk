@@ -3,6 +3,8 @@ import SidebarContainer from '../sidebar/sidebar_container';
 import MessageIndexItem from './message_index_item';
 import MessageFormContainer from '../message_form/message_form_container';
 import { Route } from 'react-router-dom';
+import Modal from 'react-modal';
+import ChannelModal from '../modal/channel_modal';
 
 class Chatroom extends React.Component {
   constructor(props) {
@@ -43,6 +45,7 @@ class Chatroom extends React.Component {
       <div>
         <div className="chatroom_page">
           <div className="sidebar_container">
+            <ChannelModal />
             <Route render={() => <SidebarContainer
                 currentChannelTitle={currentChannelTitle}/>} />
           </div>

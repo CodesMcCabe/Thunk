@@ -15,7 +15,7 @@ class Sidebar extends React.Component {
     return (
     <div>
       <div className="sidebar_header">
-        {this.props.currentChannelTitle}
+        #{this.props.currentChannelTitle}
         <div className="welcome_header">
           {this.props.currentUser.username}
         </div>

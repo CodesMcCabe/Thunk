@@ -48,6 +48,14 @@
   margin-bottom: 1rem;
 }
 
+.message_footer_container {
+  border-color: #717274;
+}
+
+.message_add_file:focus {
+  border-color: #717274;
+}
+
 .message_add_file {
 
   font-size: 1.25rem;
@@ -85,17 +93,22 @@ footer > input.message_box {
   border-bottom-left-radius: 0;
 }
 
+footer > input.message_box:focus {
+  border-color: #717274;
+}
+
 
 
 .chatlog_container {
   position: relative;
-  margin-top: 3%;
+  margin-top: 64px;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  margin-bottom: 4%;
+  margin-bottom: 60px;
 }
 
 .chatlog {
   bottom: 0;
+  margin-top:0;
 }

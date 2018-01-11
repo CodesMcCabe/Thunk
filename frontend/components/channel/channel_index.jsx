@@ -1,7 +1,9 @@
 import React from 'react';
 import { withRouter, NavLink } from 'react-router-dom';
-
-
+import Modal from 'react-modal';
+import ChannelModal from '../modal/channel_modal';
+// //
+// <button className="add_channel_button"></button>
 // ADD MODAL FOR CHANNELS
 // SEARCH FOR ALL CHANNELS IN ORDER TO SUB
 class ChannelIndex extends React.Component {
@@ -10,7 +12,8 @@ class ChannelIndex extends React.Component {
       <div className="sidebar_list">
         <div className="channel_header">
           Channels
-          <button className="add_channel_button"></button>
+          <ChannelModal />
+          
         </div>
         <div className="channel_list">
           <ul>
