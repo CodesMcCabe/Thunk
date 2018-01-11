@@ -39,7 +39,7 @@ class ChannelModal extends React.Component {
         right           : 0,
         bottom          : 0,
         border          : '1px solid #ccc',
-        padding         : '20px',
+        padding         : '50px',
         zIndex          : 11
       }
     };
@@ -53,9 +53,38 @@ class ChannelModal extends React.Component {
           onRequestClose={this.closeModal}
           style={style}>
 
-          <button onClick={this.closeModal}>X</button>
-          <h2>Im a modal</h2>
-          <p>modal</p>
+
+
+          <h1>Create a Channel</h1>
+          <p>Channels are where your members communicate.
+            They're best organized around a topic - #leads, for example</p>
+          <p>Anyone in your workspace can view and join this channel</p>
+          <form onSubmit={this.handleSubmit}>
+            <label>Name
+              <input type="text"
+                value={this.state.name}
+                onChange={this.update('name')}/>
+              <div>Names must be lowercase, without spaces or periods, around
+              shorter than 22 characters.</div>
+            </label>
+
+            <label>Purpose(optional)
+              <input type="text"
+                value={this.state.name}
+                onChange={this.update('purpose')}/>
+              <div>What's this channel about?</div>
+            </label>
+
+            <label>Send invites to: (optional)
+              <input type="type"
+                value={this.state.invites}
+                onChange={this.update('invites')}/>
+              <div>Select up to 1000 people to add to this channel.</div>
+            </label>
+            <button>Create Channel</button>
+          </form>
+
+          <button onClick={this.closeModal}>Cancel</button>
 
         </Modal>
       </div>

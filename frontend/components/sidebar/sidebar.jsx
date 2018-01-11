@@ -1,6 +1,8 @@
 import React from 'react';
 import ChannelIndexContainer from '../channel/channel_index_container';
 import { withRouter, Route } from 'react-router-dom';
+import Modal from 'react-modal';
+import ChannelModal from '../modal/channel_modal';
 
 class Sidebar extends React.Component {
 
@@ -16,6 +18,7 @@ class Sidebar extends React.Component {
     <div>
       <div className="sidebar_header">
         #{this.props.currentChannelTitle}
+        <ChannelModal />
         <div className="welcome_header">
           {this.props.currentUser.username}
         </div>

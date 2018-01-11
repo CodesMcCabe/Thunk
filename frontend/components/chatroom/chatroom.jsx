@@ -45,7 +45,6 @@ class Chatroom extends React.Component {
       <div>
         <div className="chatroom_page">
           <div className="sidebar_container">
-            <ChannelModal />
             <Route render={() => <SidebarContainer
                 currentChannelTitle={currentChannelTitle}/>} />
           </div>
