@@ -13,7 +13,10 @@
 User.delete_all
 Message.delete_all
 Channel.delete_all
+ChannelSubscription.delete_all
 
-u1 = User.create!(id: 1, username: 'admin', password: 'password')
-u2 = User.create!(id: 2, username: 'demo-user', password: 'password')
-c1 = Channel.create!(id: 1, title: 'default', admin_id: 1)
+u1 = User.create!(username: 'admin', password: 'password')
+u2 = User.create!(username: 'demo-user', password: 'password')
+c1 = Channel.create!(title: 'default', admin_id: u2.id)
+s1 = ChannelSubscription.create!(channel_id: c1.id, user_id: u2.id)
+s2 = ChannelSubscription.create!(channel_id: c1.id, user_id: u1.id)

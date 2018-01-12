@@ -17,11 +17,9 @@ class Api::ChannelsController < ApplicationController
   end
 
   def destroy
-    # if current_user.id == @channel.id
-    #   # DELETE CHANNEL FROM DB
-    # else
-    #   render json: ['Invalid permissions!']
-    # end
+    # @channel = Channel.find_by(id: params[:id])
+    # @channel.destroy
+    # render json: {}
   end
 
   def update(payload)

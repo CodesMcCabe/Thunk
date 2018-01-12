@@ -88,7 +88,13 @@ button.add_channel_button {
 }
 
 button.delete_channel_button:hover {
-  // display: block;
+  color: #fff;
+  border-color: #fff;
+  cursor: pointer;
+}
+
+button.delete_channel_button:focus {
+  outline: 0;
 }
 
 button.delete_channel_button {

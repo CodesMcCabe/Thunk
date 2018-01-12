@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ChannelIndex from './channel_index';
 import { withRouter } from 'react-router-dom';
-import { createChannel } from '../../actions/channel_actions';
+import { createChannel, deleteChannel } from '../../actions/channel_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let channels = [];
@@ -23,7 +23,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    createChannel: (channel) => dispatch(createChannel(channel))
+    createChannel: (channel) => dispatch(createChannel(channel)),
+    deleteChannel: (channelId) => dispatch(deleteChannel(channelId))
   });
 };
 

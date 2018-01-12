@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      payload = {channel_id: 1, user_id: @user.id}
+      payload = {channel_id: Channel.first, user_id: @user.id}
       ChannelSubscription.create(payload)
       login(@user)
       render 'api/users/show'

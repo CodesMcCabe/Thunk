@@ -6,6 +6,14 @@ import ChannelModalContainer from '../modal/channel_modal_container';
 // ADD MODAL FOR CHANNELS
 // SEARCH FOR ALL CHANNELS IN ORDER TO SUB
 class ChannelIndex extends React.Component {
+  constructor (props) {
+    super(props);
+
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete () {}
+
   render () {
     return (
       <div className="sidebar_list">
@@ -22,7 +30,8 @@ class ChannelIndex extends React.Component {
                     to={`/channels/${channel.id}`}>
                     <div className="channel_hash"># </div>
                     <div className="channel_title">{channel.title}</div>
-                    <button className="delete_channel_button">
+                    <button
+                      className="delete_channel_button">
                       <div className="cssCircle">
                         <text className="circle_letter">x</text>
                       </div>
