@@ -18,6 +18,13 @@
   flex-direction: column;
 }
 
+button.delete_circle {
+  height: 16px;
+  width: 16px;
+  border: 1px solid #ab9ba9;
+  border-radius: 50%;
+}
+
 button.add_channel_button:hover {
   color: #fff;
   border-color: #fff;
@@ -41,47 +48,69 @@ button.add_channel_button:focus {
   outline: 0;
 }
 
-button.add_channel_button {
-  margin-top: 5px;
-  margin-right: 5px;
-  // height: 15px;
-  float: right;
-  // right: 0;
-  // bottom: 0;
+.circle_letter {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 16px;
+  margin-bottom: 5px;
+}
 
-  justify-content: center;
+.cssCircle {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 16px;
+}
+
+button.add_channel_button {
+  float: right;
+  margin-right: 5px;
+
+  justify-content:center;
 
   color: #ab9ba9;
-  -webkit-border-radius: 999px;
-  -moz-border-radius: 999px;
-  border-radius: 999px;
-  behavior: url(PIE.htc);
+  border-radius: 50%;
 
   width: 16px;
   height: 16px;
-  padding: 0px;
-  // padding-bottom: 1px;
+  padding: 0;
+  padding-bottom: 5px;
 
   background: none;
   border: 1.5px solid #ab9ba9;
   // color: #003580;
   text-align: center;
-  -webkit-transition: background 0.1s linear;
-  -moz-transition: background 0.1s linear;
-  -ms-transition: background 0.1s linear;
-  -o-transition: background 0.1s linear;
   transition: background 0.1s linear;
   transition: color 0.2s linear;
 
   line-height: 1.1rem;
-  // font-size: 20px;
-  //   font-style: normal;
-  //   font-weight: normal;
-  //   display: inline-block;
-  //   vertical-align: middle;
-  //   width: 20px;
-  //   opacity: 0.64;
-  //   line-height: 100%;
+
+  font: 13px Arial, sans-serif
+}
+
+button.delete_channel_button:hover {
+  // display: block;
+}
+
+button.delete_channel_button {
+
+
+  margin-right: 5px;
+
+  color: #ab9ba9;
+  border-radius: 50%;
+
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  padding-bottom: 5px;
+
+  background: none;
+  border: 1.5px solid #ab9ba9;
+  text-align: center;
+  transition: background 0.1s linear;
+  transition: color 0.2s linear;
+
+  line-height: 1.1rem;
   font: 13px Arial, sans-serif
 }
 
@@ -89,34 +118,14 @@ button.add_channel_button {
   // margin-bottom: 10px;
   // font-weight: bold;
 }
-//
-// .cssCircle {
-//   margin-bottom: 5px;
-//   // -webkit-border-radius: 999px;
-//   // -moz-border-radius: 999px;
-//   // border-radius: 999px;
-//   // behavior: url(PIE.htc);
-//   //
-//   // width: 13px;
-//   // height: 13px;
-//   // padding: 0px;
-//   //
-//   // background: #779BCA;
-//   // border: 1px solid #003580;
-//   // color: #003580;
-//   // text-align: center;
-//   // -webkit-transition: background 0.2s linear;
-//   // -moz-transition: background 0.2s linear;
-//   // -ms-transition: background 0.2s linear;
-//   // -o-transition: background 0.2s linear;
-//   // transition: background 0.2s linear;
-//   // transition: color 0.2s linear;
-//   //
-//   // font: 13px Arial, sans-serif
-// }
 
 .channel_list {
 
+}
+
+li.li_list_item {
+  display: flex;
+  justify-content: center;
 }
 
 .channel_hash {
@@ -127,15 +136,22 @@ button.add_channel_button {
   bottom: 0;
 }
 
+.channel_title {
+  text-decoration: none;
+  font-size: 16px;
+  color: #cac4c9;
+  padding-left: 0;
+  width: 100%;
+}
+
 .channel_list_item {
   text-decoration: none;
   font-size: 16px;
   color: #cac4c9;
-  // font-weight: 900;
   padding-left: 0;
   width: 100%;
-  display:block;
-  margin-bottom: 5px;
+  display:flex;
+  justify-content: flex-end;
 }
 
 .channel_list_item:hover {

@@ -21,7 +21,12 @@ class ChannelIndex extends React.Component {
                   <NavLink className="channel_list_item"
                     to={`/channels/${channel.id}`}>
                     <div className="channel_hash"># </div>
-                    {channel.title}
+                    <div className="channel_title">{channel.title}</div>
+                    <button className="delete_channel_button">
+                      <div className="cssCircle">
+                        <text className="circle_letter">x</text>
+                      </div>
+                    </button>
                   </NavLink>
                 </li>
               );
