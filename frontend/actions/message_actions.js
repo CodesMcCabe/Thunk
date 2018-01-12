@@ -4,10 +4,13 @@ import * as MessageApiUtil from '../util/messages_util';
 
 export const fetchMessages = () => dispatch => {
   return (
-    MessageApiUtil.fetchMessages().then(messages => dispatch(
-      receiveAllMessages(messages)))
-  );
-};
+    MessageApiUtil.fetchMessages().then(messages => {
+      return dispatch(
+      receiveAllMessages(messages));
+
+    }
+  )
+);};
 
 export const fetchMessage = (id) => dispatch => {
   return (

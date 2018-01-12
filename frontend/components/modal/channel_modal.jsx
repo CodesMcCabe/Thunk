@@ -73,41 +73,52 @@ class ChannelModal extends React.Component {
 
         <Modal isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
-          style={style}>
+          style={style}
+          className={{
+          base: 'channel_modal',
+          afterOpen: 'channel_modal_after-open',
+          beforeClose: 'channel_modal_before-close'
+          }}>
 
 
+          <div className="modal_mid_container">
+            <h1 className="modal_header">Create a Channel</h1>
+            <div className="modal_notes">Channels are where your members communicate.
+              They're best organized around a topic - #leads, for example</div>
+            <p>Anyone in your workspace can view and join this channel</p>
+            <form className="channel_create_form" onSubmit={this.handleSubmit}>
+              <label className="channel_labels">Name
+                <input className="channel_name_input" autoFocus type="text"
+                  value={this.state.title}
+                  onChange={this.update('title')}
+                  placeholder="# e.g. leads"/>
+                <div className="modal_notes">Names must be lowercase, without spaces or periods, around
+                shorter than 22 characters.</div>
+              </label>
 
-          <h1>Create a Channel</h1>
-          <p>Channels are where your members communicate.
-            They're best organized around a topic - #leads, for example</p>
-          <p>Anyone in your workspace can view and join this channel</p>
-          <form onSubmit={this.handleSubmit}>
-            <label>Name
-              <input autoFocus type="text"
-                value={this.state.title}
-                onChange={this.update('title')}/>
-              <div>Names must be lowercase, without spaces or periods, around
-              shorter than 22 characters.</div>
-            </label>
+              <label className="channel_labels">Purpose(optional)
+                <input type="text"
+                  className="channel_purpose_input"
+                  value={this.state.purpose}
+                  onChange={this.update('purpose')}/>
+                <div className="modal_notes">
+                  What's this channel about?</div>
 
-            <label>Purpose(optional)
-              <input type="text"
-                value={this.state.purpose}
-                onChange={this.update('purpose')}/>
-              <div>What's this channel about?</div>
-            </label>
+              </label>
 
-            <label>Send invites to: (optional)
-              <input type="type"
-                value={this.state.invites}
-                onChange={this.update('invites')}/>
-              <div>Select up to 1000 people to add to this channel.</div>
-            </label>
-            <button>Create Channel</button>
-          </form>
+              <label className="channel_labels">Send invites to: (optional)
+                <input type="type"
+                  className="channel_invites_input"
+                  value={this.state.invites}
+                  onChange={this.update('invites')}/>
+                <div className="modal_notes">Select up to 1000 people to
+                   add to this channel.</div>
+              </label>
+              <button className="channel_button">Create Channel</button>
+            </form>
 
-          <button onClick={this.closeModal}>Cancel</button>
-
+            <button className="cancel_button" onClick={this.closeModal}>Cancel</button>
+          </div>
         </Modal>
       </div>
     );

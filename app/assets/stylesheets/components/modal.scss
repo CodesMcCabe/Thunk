@@ -1,0 +1,126 @@
+.channel_modal_after-open {
+  background-color: #fff;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+  // padding: 100px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 150px;
+  z-index: 11;
+  // justify-content: space-between;
+}
+
+.purpose_label {
+  // padding: 25px;
+}
+
+.channel_name_input {
+  // margin-top: 10px;
+  display:block;
+  width: 100%
+}
+
+.channel_extra_words {
+  margin-bottom: 10px;
+}
+
+.channel_purpose_input {
+  // margin-top: 10px;
+  display: block;
+  width: 100%
+}
+
+.channel_invites_input {
+  // margin-top: 10px;
+  display: block;
+  width: 100%
+}
+
+button.channel_button:hover {
+  background: #2ea664;
+  color: #fff;
+}
+
+button.channel_button {
+  background: #cac4c9;
+    color: #fff;
+    width: 75px;
+    font-size: 14px;
+    font-weight: 900;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    line-height: 1.2rem;
+    user-select: none;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: .25rem;
+    box-shadow: none;
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+    white-space: nowrap;
+    margin: .5rem 0 0 0;
+    padding: 7px 16px 7px;
+    width: 125px;
+}
+
+.channel_create_form {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+button.cancel_button:hover {
+  color: #0E7CD8;
+}
+
+button.cancel_button {
+  background: #cac4c9;
+    color: black;
+    width: 75px;
+    font-size: 14px;
+    font-weight: 900;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    line-height: 1.2rem;
+    user-select: none;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: .25rem;
+    box-shadow: none;
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+    white-space: nowrap;
+    margin: .5rem 0 0 0;
+    padding: 7px 16px 7px;
+
+}
+
+.channel_labels {
+  font-weight: bold;
+  // margin-top: 15px;
+}
+
+div.modal_notes {
+  color: #717274;
+}
+
+.channel_modal {
+}
+.modal_header {
+  align-self: left;
+}
+
+.modal_mid_container {
+  width: 650px;
+  padding-top: 10px;
+}

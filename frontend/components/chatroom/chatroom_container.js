@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
   currentChannelId = ownProps.match.params.id;
   if (Object.values(state.channels).length > 0 &&
     state.channels[currentChannelId])  {
-      messages = state.channels[currentChannelId].messageIds.map(messageId => {
+      messages = state.channels[currentChannelId].messageIds.sort().map(
+        messageId => {
         return (
           state.messages[messageId]
         );

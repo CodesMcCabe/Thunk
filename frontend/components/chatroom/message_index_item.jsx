@@ -4,12 +4,14 @@ import moment from 'moment';
 const MessageIndexItem = ({ user, message }) => {
   // ADD PROFILE PICTURE IN IMAGE SPOT
   // UPDATE USER MODEL TO ACCEPT A PROFILE PIC
+  let randomIndex = Math.floor((Math.random() * 9) + 0);
+  let avatarImage = window.avatarImages[randomIndex];
 
   return (
     <li className="message_container">
         <div className="message_avatar_container">
           <img className="member_avatar"
-            src={window.staticImages.member_avatar}/>
+            src={avatarImage}/>
         </div>
         <div className="message_data_container">
           <div className="message_header">
