@@ -15,9 +15,9 @@ class Api::ChannelsController < ApplicationController
   end
 
   def destroy
-    # @channel = Channel.find_by(id: params[:id])
-    # @channel.destroy
-    # render json: {}
+    @channel = Channel.find_by(id: params[:id])
+    @channel.destroy
+    render json: {}
   end
 
   def update(payload)

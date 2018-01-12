@@ -83,7 +83,7 @@ class ChannelModal extends React.Component {
           <p>Anyone in your workspace can view and join this channel</p>
           <form onSubmit={this.handleSubmit}>
             <label>Name
-              <input type="text"
+              <input autoFocus type="text"
                 value={this.state.title}
                 onChange={this.update('title')}/>
               <div>Names must be lowercase, without spaces or periods, around

@@ -11,13 +11,14 @@ const mapStateToProps = (state, ownProps) => {
   // global state
   let messages = [];
   let currentChannelId;
-  if (Object.values(state.channels).length > 0)  {
-    currentChannelId = ownProps.match.params.id;
-    messages = state.channels[currentChannelId].messageIds.map(messageId => {
-      return (
-        state.messages[messageId]
-      );
-    });
+  currentChannelId = ownProps.match.params.id;
+  if (Object.values(state.channels).length > 0 &&
+    state.channels[currentChannelId])  {
+      messages = state.channels[currentChannelId].messageIds.map(messageId => {
+        return (
+          state.messages[messageId]
+        );
+      });
   }
 
   // REVERSE ON MESSAGES HERE!!

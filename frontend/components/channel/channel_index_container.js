@@ -17,16 +17,17 @@ const mapStateToProps = (state, ownProps) => {
 
 
   return({
-    channels: channels
+    channels: channels,
+    // currentUser: state.session.currentUser
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
     createChannel: (channel) => dispatch(createChannel(channel)),
-    deleteChannel: (channelId) => dispatch(deleteChannel(channelId))
+    deleteChannel: (channelId) => () => dispatch(deleteChannel(channelId))
   });
 };
 
 export default withRouter(connect(mapStateToProps,
-  null)(ChannelIndex));
+  mapDispatchToProps)(ChannelIndex));

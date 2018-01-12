@@ -1,18 +1,28 @@
 import React from 'react';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter, NavLink, Redirect } from 'react-router-dom';
 import Modal from 'react-modal';
 import ChannelModalContainer from '../modal/channel_modal_container';
 // //
 // ADD MODAL FOR CHANNELS
 // SEARCH FOR ALL CHANNELS IN ORDER TO SUB
 class ChannelIndex extends React.Component {
-  constructor (props) {
-    super(props);
 
-    this.handleDelete = this.handleDelete.bind(this);
+  deleteButton (channel) {
+    if (channel.title === 'default') {
+      return (
+        <div></div>
+      );
+    } else {
+      return (
+        <button onClick={this.props.deleteChannel(channel.id)}
+          className="delete_channel_button">
+          <div className="cssCircle">
+            <p className="circle_letter">x</p>
+          </div>
+        </button>
+      );
+    }
   }
-
-  handleDelete () {}
 
   render () {
     return (
@@ -25,19 +35,14 @@ class ChannelIndex extends React.Component {
           <ul>
             {this.props.channels.map(channel => {
               return (
-                <li className="li_list_item" key={channel.id}>
-                  <NavLink className="channel_list_item"
-                    to={`/channels/${channel.id}`}>
-                    <div className="channel_hash"># </div>
-                    <div className="channel_title">{channel.title}</div>
-                    <button 
-                      className="delete_channel_button">
-                      <div className="cssCircle">
-                        <text className="circle_letter">x</text>
-                      </div>
-                    </button>
-                  </NavLink>
-                </li>
+                  <li className="li_list_item" key={channel.id}>
+                    <NavLink className="channel_list_item"
+                      to={`/channels/${channel.id}`}>
+                      <div className="channel_hash"># </div>
+                      <div className="channel_title">{channel.title}</div>
+                      {this.deleteButton(channel)}
+                    </NavLink>
+                  </li>
               );
             })}
           </ul>
