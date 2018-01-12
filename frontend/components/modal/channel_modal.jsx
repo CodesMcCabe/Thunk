@@ -10,7 +10,8 @@ class ChannelModal extends React.Component {
       title: "",
       purpose: "",
       invites: "",
-      admin_id: this.props.admin_id
+      admin_id: this.props.admin_id,
+      channels: this.props.channels
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,6 +39,29 @@ class ChannelModal extends React.Component {
   openModal() {
     this.setState({ modalOpen: true });
   }
+
+  renderChannels () {
+    if (this.state.channels) {
+      return (
+        this.state.channels.map(channel => {
+          let payload = {channel_id: channel.id,
+            user_id: this.props.currentUser.id};
+          return (
+            <li>
+              <Link onClick={this.subscribeChannel(payload)}>
+                {channel.title}
+              </Link>
+            </li>
+          );
+        }
+      )
+    );
+  } else {
+    return(
+      <div></div>
+    );
+  }
+}
 
   render() {
     const style = {

@@ -1,5 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
+// import Search from 'react-search-box';
+// import ChannelModal from './channel_modal';
+// import { Link } from 'react-router-dom';
 
 class BrowseChannelModal extends React.Component {
   constructor (props) {
@@ -7,15 +10,13 @@ class BrowseChannelModal extends React.Component {
 
     this.state = {
       modalOpen: false,
-      title: "",
-      purpose: "",
-      invites: "",
-      admin_id: this.props.admin_id
+      channels: this.props.channels
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+    // this.renderChannels = this.renderChannels.bind(this);
   }
 
   update(field) {
@@ -24,12 +25,13 @@ class BrowseChannelModal extends React.Component {
     };
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const channel = Object.assign({}, this.state);
-    this.props.createChannel({channel});
-    this.closeModal();
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   // const payload = {channel_id:}
+  //   const channel = Object.assign({}, this.state);
+  //   this.props.subscribeChannel();
+  //   this.closeModal();
+  // }
 
   closeModal() {
     this.setState({ modalOpen: false });
@@ -37,6 +39,37 @@ class BrowseChannelModal extends React.Component {
 
   openModal() {
     this.setState({ modalOpen: true });
+    // this.props.fetchChannels();
+  }
+
+  openCreateModal () {
+    // return (
+    //   <ChannelModal />
+    // );
+  }
+
+  renderChannels () {
+    if (this.state.channels) {
+      return (
+        this.state.channels.map(channel => {
+          let payload = {channel_id: channel.id,
+            user_id: this.props.currentUser.id};
+          return (
+            <li>
+              <Link onClick={this.subscribeChannel(payload)}>
+                {channel.title}
+              </Link>
+            </li>
+          );
+        }
+      )
+    );
+  } else {
+    return(
+      <div></div>
+    );
+  }
+
   }
 
   render() {
@@ -73,45 +106,27 @@ class BrowseChannelModal extends React.Component {
 
         <Modal isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
-          style={style}>
+          style={style}
+          afterOpenModal={this.props.fetchChannels}>
 
 
 
-          <h1>Create a Channel</h1>
-          <p>Channels are where your members communicate.
-            They're best organized around a topic - #leads, for example</p>
-          <p>Anyone in your workspace can view and join this channel</p>
-          <form onSubmit={this.handleSubmit}>
-            <label>Name
+          <h1>Browse Channels</h1>
+          {this.state.channels}
+            <label>
               <input autoFocus type="text"
                 value={this.state.title}
-                onChange={this.update('title')}/>
-              <div>Names must be lowercase, without spaces or periods, around
-              shorter than 22 characters.</div>
+                onChange={this.update('title')}
+                placeholder="Search Channels"/>
             </label>
-
-            <label>Purpose(optional)
-              <input type="text"
-                value={this.state.purpose}
-                onChange={this.update('purpose')}/>
-              <div>What's this channel about?</div>
-            </label>
-
-            <label>Send invites to: (optional)
-              <input type="type"
-                value={this.state.invites}
-                onChange={this.update('invites')}/>
-              <div>Select up to 1000 people to add to this channel.</div>
-            </label>
-            <button>Create Channel</button>
-          </form>
-
+            {this.renderChannels()}
+          <button onClick={this.openCreateModal}>Create Channel</button>
           <button onClick={this.closeModal}>Cancel</button>
-
         </Modal>
       </div>
     );
   }
 }
+  // <Link to={`channels/${channel.id}`}>{channel.title}</Link>
 
 export default BrowseChannelModal;

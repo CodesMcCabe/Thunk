@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Chatroom from './chatroom';
 import { fetchMessages } from '../../actions/message_actions';
 import { fetchUsers } from '../../actions/user_actions';
-import { fetchChannels } from '../../actions/channel_actions';
+import { fetchChannels, subscribeChannel } from '../../actions/channel_actions';
 import { logout } from '../../actions/session_actions';
 
 
@@ -48,7 +48,8 @@ const mapDispatchToProps = (dispatch) => {
 
     logout: () => dispatch(
       logout()
-    )
+    ),
+
   });
 };
 

@@ -4,9 +4,11 @@ import GreetingContainer from './greeting/greeting_container';
 class Homepage extends React.Component {
   render () {
     return (
-      <header>
-        <GreetingContainer />
-      </header>
+      <div>
+        <header>
+          <GreetingContainer />
+        </header>
+      </div>
     );
   }
 }
