@@ -14,6 +14,6 @@ User.delete_all
 Message.delete_all
 Channel.delete_all
 
-u1 = User.create!(id: 1, username: 'admin', password: 'killercurve234')
+u1 = User.create!(id: 1, username: 'admin', password: 'password')
 u2 = User.create!(id: 2, username: 'demo-user', password: 'password')
 c1 = Channel.create!(id: 1, title: 'default', admin_id: 1)
