@@ -30,7 +30,7 @@ class ChannelIndex extends React.Component {
                     to={`/channels/${channel.id}`}>
                     <div className="channel_hash"># </div>
                     <div className="channel_title">{channel.title}</div>
-                    <button
+                    <button 
                       className="delete_channel_button">
                       <div className="cssCircle">
                         <text className="circle_letter">x</text>

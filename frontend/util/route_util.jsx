@@ -24,9 +24,12 @@ const Protected = ({component: Component, path, loggedIn}) => (
 );
 
 const mapStateToProps = state => {
+
+
   return {
     loggedIn: Boolean(state.session.currentUser),
-    defaultChannel: state.defaultChannel
+    defaultChannel: state.session.currentUser &&
+      state.session.currentUser.channelSubs[0]
   };
 };
 
