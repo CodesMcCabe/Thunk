@@ -117,7 +117,9 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div id="page">
+      <div>
+        <GreetingContainer/>
+        <div id="page">
         {this.renderErrors()}
 
         <div className="session_box" id="form">
@@ -171,6 +173,7 @@ class SessionForm extends React.Component {
           </p>
         </div>
       </div>
+    </div>
     );
   }
 

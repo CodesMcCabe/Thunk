@@ -29,7 +29,9 @@ class ChannelModal extends React.Component {
     const channel = Object.assign({}, this.state);
     this.props.createChannel({channel});
     this.closeModal();
-  }
+    e.currentTarget.value = "";
+}
+
 
   closeModal() {
     this.setState({ modalOpen: false });

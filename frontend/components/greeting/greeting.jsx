@@ -23,7 +23,8 @@ class Greeting extends React.Component {
     return(
       <nav className="top persistent">
         <div>
-          <img className="logo" src={window.staticImages.logo} />
+          <a href="/">
+          <img className="logo" src={window.staticImages.logo} /></a>
         </div>
         <ul>
           <li>{this.renderLoginHeader(this.props)}</li>

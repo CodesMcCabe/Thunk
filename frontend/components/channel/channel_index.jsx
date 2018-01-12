@@ -17,7 +17,7 @@ class ChannelIndex extends React.Component {
         <button onClick={this.props.deleteChannel(channel.id)}
           className="delete_channel_button">
           <div className="cssCircle">
-            <p className="circle_letter">x</p>
+            <div className="circle_letter">x</div>
           </div>
         </button>
       );

@@ -4,9 +4,15 @@ import GreetingContainer from './greeting/greeting_container';
 class Homepage extends React.Component {
   render () {
     return (
-      <header>
-        <GreetingContainer />
-      </header>
+      <div className="homepage">
+        <header>
+          <GreetingContainer />
+        </header>
+
+        <div className='homepage-intro'>
+        <img className='welcome-box' src={window.staticImages.homeSide} />
+        </div>
+      </div>
     );
   }
 }

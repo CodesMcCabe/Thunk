@@ -10,13 +10,13 @@ const App = () => (
   <div>
     <header>
     </header>
+    <AuthRoute path="/login" component={SessionFormContainer} />
+    <AuthRoute path="/signup" component={SessionFormContainer} />
     <Switch>
       <ProtectedRoute exact path="/channels/:id" component={ChatroomContainer}/>
-      <Route path="/" component={Homepage}/>
+      <Route exact path="/" component={Homepage}/>
     </Switch>
 
-      <AuthRoute path="/login" component={SessionFormContainer} />
-      <AuthRoute path="/signup" component={SessionFormContainer} />
   </div>
 );
 
