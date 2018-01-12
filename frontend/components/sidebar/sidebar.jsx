@@ -22,7 +22,7 @@ class Sidebar extends React.Component {
         <div className="welcome_header">
           {this.props.currentUser.username}
         </div>
-        <button className="logout_btn"
+        <button className="logout_button"
           onClick={ this.props.logout }>Log out</button>
       </div>
 

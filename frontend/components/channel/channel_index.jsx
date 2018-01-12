@@ -24,18 +24,26 @@ class ChannelIndex extends React.Component {
     }
   }
 
+  focusDefaultChannel() {
+    // let margin = document.getElementById('focus_channel');
+    // if (margin.className === 'session_box') {
+    //   margin.className = 'session_box_with_errors';
+    // }
+  }
+
   render () {
     return (
       <div className="sidebar_list">
         <div className="channel_header">
-          Channels
+          <div className="ch_header_top">Channels</div>
           <ChannelModalContainer />
         </div>
         <div className="channel_list">
           <ul>
             {this.props.channels.map(channel => {
               return (
-                  <li className="li_list_item" key={channel.id}>
+                  <li id="focus_channel"
+                    className="li_list_item" key={channel.id}>
                     <NavLink className="channel_list_item"
                       to={`/channels/${channel.id}`}>
                       <div className="channel_hash"># </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-class ChannelModal extends React.Component {
+class BrowseChannelModal extends React.Component {
   constructor (props) {
     super(props);
 
@@ -114,4 +114,4 @@ class ChannelModal extends React.Component {
   }
 }
 
-export default ChannelModal;
+export default BrowseChannelModal;
