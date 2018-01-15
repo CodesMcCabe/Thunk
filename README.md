@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+** What is Thunk? **
 
-Things you may want to cover:
+  Thunk is a live-chat application that uses websockets to establish
+  a persistent connection between the front-end user and the back-end server.
 
-* Ruby version
+Live-site: https://aa-thunk.herokuapp.com/#/
 
-* System dependencies
+** Technologies used **
 
-* Configuration
+Database: PostgreSQL
+Version-Control:  Git
+Module Bundler: Webpack
+Languages: JavaScript, Ruby
 
-* Database creation
+Ruby on Rails:
 
-* Database initialization
+  Used to create a RESTful API on the back-end of Thunk.
 
-* How to run the test suite
+React:
 
-* Services (job queues, cache servers, search engines, etc.)
+  Used to create front-end views
 
-* Deployment instructions
+ActionCable:
 
-* ...
+  Used as the websocket framework to establish live-chat.
+
+Redis:
+
+  Used in conjunction with ActionCable to establish the PUB/SUB
+  messaging environment.
