@@ -4,31 +4,22 @@
 
 ## What is Thunk?
 
-  Thunk is a live-chat application that uses websockets to establish
+  Thunk is a live-chat application Slack clone that uses websockets to establish
   a persistent connection between the front-end user and the back-end server.
 
 Live-site: https://aa-thunk.herokuapp.com/#/
 
-## Technologies used
+## Built With
 
-Database: PostgreSQL
-Version-Control:  Git
-Module Bundler: Webpack
-Languages: JavaScript, Ruby
+- **Database** - *PostgreSQL*
+- **Version-Control** - *Git*
+- **Module Bundler** - *Webpack*
+- **Languages** - *JavaScript, Ruby*
 
-Ruby on Rails:
+- **Ruby on Rails** - RESTful API on the back-end of Thunk.
 
-  Used to create a RESTful API on the back-end of Thunk.
+- **React** - front-end views with normalized state. Ajax calls made to the RESTful Rails back-end.
 
-React:
+- **ActionCable** - websocket framework to establish live-chat.
 
-  Used to create front-end views
-
-ActionCable:
-
-  Used as the websocket framework to establish live-chat.
-
-Redis:
-
-  Used in conjunction with ActionCable to establish the PUB/SUB
-  messaging environment.
+- **Redis** - Used in conjunction with ActionCable to establish the PUB/SUB messaging environment.
