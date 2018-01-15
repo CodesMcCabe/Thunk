@@ -1,5 +1,9 @@
 # README
 
+![alt text][logo]
+
+[logo]: https://github.com/Roots2D/thunk/blob/master/app/assets/images/thunk_logo.png "Logo Title Text 2
+
 ** What is Thunk? **
 
   Thunk is a live-chat application that uses websockets to establish
