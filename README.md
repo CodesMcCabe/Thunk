@@ -16,10 +16,10 @@ Live-site: https://aa-thunk.herokuapp.com/#/
 - **Module Bundler** - *Webpack*
 - **Languages** - *JavaScript, Ruby*
 
-- **Ruby on Rails** - RESTful API on the back-end of Thunk.
+- **Ruby on Rails** - *RESTful API on the back-end of Thunk.*
 
-- **React** - front-end views with normalized state. Ajax calls made to the RESTful Rails back-end.
+- **React** - *front-end views with normalized state. Ajax calls made to the RESTful Rails back-end.*
 
-- **ActionCable** - websocket framework to establish live-chat.
+- **ActionCable** - *websocket framework to establish live-chat.*
 
-- **Redis** - Used in conjunction with ActionCable to establish the PUB/SUB messaging environment.
+- **Redis** - *Used in conjunction with ActionCable to establish the PUB/SUB messaging environment.*
