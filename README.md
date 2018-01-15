@@ -1,17 +1,15 @@
 # README
 
-![alt text][logo]
+![alt text](https://github.com/Roots2D/thunk/blob/master/app/assets/images/thunk_logo.png "Logo Title Text 1")
 
-[logo]: https://github.com/Roots2D/thunk/blob/master/app/assets/images/thunk_logo.png "Logo Title Text 2
-
-** What is Thunk? **
+## What is Thunk?
 
   Thunk is a live-chat application that uses websockets to establish
   a persistent connection between the front-end user and the back-end server.
 
 Live-site: https://aa-thunk.herokuapp.com/#/
 
-** Technologies used **
+## Technologies used
 
 Database: PostgreSQL
 Version-Control:  Git
