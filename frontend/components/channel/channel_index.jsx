@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, NavLink, Redirect } from 'react-router-dom';
 import Modal from 'react-modal';
 import ChannelModalContainer from '../modal/channel_modal_container';
-// //
+
 // ADD MODAL FOR CHANNELS
 // SEARCH FOR ALL CHANNELS IN ORDER TO SUB
 class ChannelIndex extends React.Component {

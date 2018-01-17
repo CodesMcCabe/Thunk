@@ -11,7 +11,7 @@ class MessageForm extends React.Component {
   }
 
   componentWillUnmount() {
-    this.chats.unsubscribe();  
+    this.chats.unsubscribe();
   }
 
   componentDidMount() {
@@ -79,5 +79,3 @@ class MessageForm extends React.Component {
 }
 
 export default MessageForm;
-
-// WILL IMPORT THIS INTO THE CHATROOM PRESENTATIONAL COMPONENT

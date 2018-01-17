@@ -1,4 +1,6 @@
-import React from 'react';
+// NOT YET IMPLEMENTED
+
+mport React from 'react';
 import Modal from 'react-modal';
 
 class BrowseChannelModal extends React.Component {

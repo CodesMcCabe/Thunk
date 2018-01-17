@@ -15,7 +15,7 @@ export const fetchMessage = (id) => {
     })
   );
 };
-// message content,
+
 export const sendMessage = (message) => {
   return (
     $.ajax({

@@ -32,7 +32,6 @@ class Chatroom extends React.Component {
     document.getElementById('chat_scroll').scrollTop = 9999999;
   }
 
-  // CAN PROB ADD DELETE METHOD FOR MESSAGE ITEM
   render() {
     let currentChannelTitle;
     if (!this.props.currentChannel) {

@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   end
 
   root "static_pages#root"
-  # root "chatrooms#show"
 
   mount ActionCable.server => '/cable'
 end

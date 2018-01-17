@@ -1,3 +1,5 @@
+// NOT YET IMPLEMENTED
+
 import { connect } from 'react-redux';
 import BrowseChannelModal from './browse_channel_modal';
 import { subscribeChannel } from '../../actions/channel_actions';

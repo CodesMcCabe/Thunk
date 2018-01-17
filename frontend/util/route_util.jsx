@@ -11,7 +11,6 @@ const Auth = ({component: Component, path, loggedIn, defaultChannel}) => (
       )
     )}/>
 );
-// SET DEFAULT CHANNEL IN STATE
 
 const Protected = ({component: Component, path, loggedIn}) => (
   <Route path={path} render={(props) => (

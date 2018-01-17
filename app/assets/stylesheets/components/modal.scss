@@ -4,7 +4,6 @@
   justify-content:center;
   align-items: center;
   flex-direction: column;
-  // padding: 100px;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -13,15 +12,9 @@
   border: 1px solid rgb(204, 204, 204);
   padding: 150px;
   z-index: 11;
-  // justify-content: space-between;
-}
-
-.purpose_label {
-  // padding: 25px;
 }
 
 .channel_name_input {
-  // margin-top: 10px;
   display:block;
   width: 100%
 }
@@ -31,13 +24,11 @@
 }
 
 .channel_purpose_input {
-  // margin-top: 10px;
   display: block;
   width: 100%
 }
 
 .channel_invites_input {
-  // margin-top: 10px;
   display: block;
   width: 100%
 }
@@ -107,7 +98,6 @@ button.cancel_button {
 
 .channel_labels {
   font-weight: bold;
-  // margin-top: 15px;
 }
 
 div.modal_notes {
