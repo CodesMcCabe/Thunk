@@ -14,12 +14,12 @@ class ChannelIndex extends React.Component {
       );
     } else {
       return (
-        <button onClick={this.props.deleteChannel(channel.id)}
-          className="delete_channel_button">
-          <div className="cssCircle">
-            <div className="circle_letter">x</div>
-          </div>
-        </button>
+        <div className="channel_button_container">
+          <button onClick={this.props.deleteChannel(channel.id)}
+            className="delete_channel_button">
+              <div className="cssCircle">x</div>
+          </button>
+        </div>
       );
     }
   }
@@ -38,8 +38,8 @@ class ChannelIndex extends React.Component {
           <div className="ch_header_top">Channels</div>
           <ChannelModalContainer />
         </div>
-        <div className="channel_list">
-          <ul>
+        <div className="channels">
+          <ul className="channel_list">
             {this.props.channels.map(channel => {
               return (
                   <li id="focus_channel"
