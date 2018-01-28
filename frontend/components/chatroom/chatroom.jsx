@@ -5,7 +5,7 @@ import MessageFormContainer from '../message_form/message_form_container';
 import { Route } from 'react-router-dom';
 import Modal from 'react-modal';
 import ChannelModal from '../modal/channel_modal';
-import Search from '../search/search';
+import SearchContainer from '../search/search_container';
 
 class Chatroom extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class Chatroom extends React.Component {
               <div className="header_channel">
                 #{currentChannelTitle}
               </div>
-              {<Search />}
+              {<SearchContainer />}
             </header>
             <div id="chat_scroll" className="chatlog_container">
               <ul className="chatlog">
