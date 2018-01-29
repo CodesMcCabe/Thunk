@@ -69,9 +69,7 @@ class ChannelModal extends React.Component {
         <div className="channel_button_container">
           <button className="add_channel_button"
             onClick={this.openModal}>
-            <div className="cssCircle">
-              +
-            </div>
+            +
           </button>
         </div>
 

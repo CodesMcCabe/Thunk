@@ -17,6 +17,9 @@
   font-weight: 900;
   margin-left: 1rem;
   margin-top: 1rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .sidebar_header_nest {

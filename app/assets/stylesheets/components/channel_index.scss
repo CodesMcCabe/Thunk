@@ -6,19 +6,23 @@
   position: relative;
 }
 
+.ch_header_top {
+  width: 90%;
+}
+
 .ch_header_top:hover {
   color: #fff;
 }
 
 .channel_header_inner {
-  width: 100%;
+  width: 15%;
   display: flex;
   margin-top: 2%;
+  justify-content: center;
 }
 
 .channel_button_container {
-  width: 100%;
-  // right: 0;
+  margin-right: 2%;
 }
 
 .sidebar_list {
@@ -26,16 +30,15 @@
   flex-direction: column;
 }
 
-.cssCircle {
-  // text-align: center;
-  vertical-align: middle;
-  line-height: 100%;
-  display: inline-block;
-  font-size: 20px;
-  width: 20px;
-  font-style: normal;
-  font-weight: normal;
-}
+// .cssCircle {
+//   vertical-align: middle;
+//   line-height: 100%;
+//   display: inline-block;
+//   font-size: 20px;
+//   width: 20px;
+//   font-style: normal;
+//   font-weight: normal;
+// }
 
 button.add_channel_button:hover {
   color: #fff;
@@ -97,14 +100,16 @@ li.li_list_item {
   left: 0;
 }
 
-
-
 .channel_hash {
   margin-left: 7%;
 }
 
 .channel_title {
   margin-left: 3%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 90%;
 }
 
 .channel_title.active {
@@ -122,9 +127,7 @@ li.li_list_item {
   color: #cac4c9;
   padding-left: 0;
   width: 100%;
-  // display:flex;
   display: block;
-  // justify-content: flex-end;
 }
 
 .channel_list_item {

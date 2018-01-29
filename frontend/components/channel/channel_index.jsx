@@ -17,7 +17,7 @@ class ChannelIndex extends React.Component {
         <div className="channel_button_container">
           <button onClick={this.props.deleteChannel(channel.id)}
             className="delete_channel_button">
-              <div className="cssCircle">x</div>
+              x
           </button>
         </div>
       );
@@ -46,9 +46,11 @@ class ChannelIndex extends React.Component {
                     className="li_list_item" key={channel.id}>
                     <NavLink className="channel_list_item"
                       to={`/channels/${channel.id}`}>
-                      <div className="tchannel_hash"># </div>
+                      <div className="channel_hash"># </div>
                       <div className="channel_title">{channel.title}</div>
-                      {this.deleteButton(channel)}
+                      <div className="channel_header_inner">
+                        {this.deleteButton(channel)}
+                      </div>
                     </NavLink>
                   </li>
               );
