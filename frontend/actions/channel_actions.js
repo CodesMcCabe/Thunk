@@ -25,9 +25,9 @@ export const deleteChannel = (channelId) => dispatch => {
   );
 };
 
-export const subscribeChannel = (payload) => dispatch => {
+export const subscribeChannel = (channelId) => dispatch => {
   return(
-    ChannelApiUtil.subscribeChannel(payload).then(channel =>
+    ChannelApiUtil.subscribeChannel(channelId).then(channel =>
       dispatch(receiveChannel(channel)))
   );
 };

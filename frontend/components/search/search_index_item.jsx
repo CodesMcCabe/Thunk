@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 
 const SearchIndexItem = ({channel}) => {
-  // debugger
   return (
     <li className="search_list_item">
       <NavLink to={`/channels/${channel.id}`}

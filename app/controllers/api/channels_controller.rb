@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::ChannelsController < ApplicationController
   def index
     @channels = Channel.all
@@ -7,7 +9,7 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.new(channel_params)
     if @channel.save
       payload = {channel_id: @channel.id, user_id: @channel.admin_id}
-      update(payload)
+      ChannelSubscription.create(payload)
       render 'api/channels/show'
     else
       render json: {}
@@ -16,12 +18,15 @@ class Api::ChannelsController < ApplicationController
 
   def destroy
     @channel = Channel.find_by(id: params[:id])
-    @channel.destroy
+    @channel.destroy if current_user.id == @channel.admin_id
     render json: {}
   end
-
-  def update(payload)
+  
+  def update
+    @channel = Channel.find_by(id: params[:channelId])
+    payload = {channel_id: params[:channelId], user_id: current_user.id}
     ChannelSubscription.create(payload)
+    render 'api/channels/show'
   end
 
 

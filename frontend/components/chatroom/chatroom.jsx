@@ -13,6 +13,7 @@ class Chatroom extends React.Component {
 
     this.scrollLastMessage = this.scrollLastMessage.bind(this);
     this.isUserSubbed = this.isUserSubbed.bind(this);
+    this.subscribeToChannel = this.subscribeToChannel.bind(this);
   }
 
   componentWillReceiveProps (nextProps) {
@@ -37,25 +38,43 @@ class Chatroom extends React.Component {
     }
   }
 
+  subscribeToChannel() {
+    // const payload = {channel_id: this.props.currentChannel.id,
+    //   user_id: this.props.currentUser.id};
+    this.props.subscribeChannel(this.props.currentChannel.id);
+  }
+
   isUserSubbed() {
     const currentUserSubs = this.props.currentUser.channelSubs;
     if (this.props.currentChannel &&
       currentUserSubs.includes(this.props.currentChannel.id)) {
       return (
-        <div id="chat_scroll" className="chatlog_container">
-          <ul className="chatlog">
-            {this.props.messages.map(message => {
-              return (
-                <MessageIndexItem
-                  key={message.id}
-                  message={message}
-                  user={this.props.users[message.user_id]}/>
-              );
-            })}
-          </ul>
+        <div className="chat_container_change">
+          <div id="chat_scroll" className="chatlog_container">
+            <ul className="chatlog">
+              {this.props.messages.map(message => {
+                return (
+                  <MessageIndexItem
+                    key={message.id}
+                    message={message}
+                    user={this.props.users[message.user_id]}/>
+                );
+              })}
+            </ul>
+          </div>
+          {<MessageFormContainer
+            currentChannel={this.props.currentChannel}/>}
         </div>
       );
+    } else if (this.props.currentChannel){
+      return (
+        <footer className="join_channel_footer">
+          <button onClick={this.subscribeToChannel}>Join Channel</button>
+        </footer>
+      );
     }
+    // BUTTON TO HIT CHANNELS UPDATE CONTROLLER ACTION
+    // SHOULD UPDATE STATE UPON RECEIPT OF DATA
   }
 
   render() {
@@ -82,15 +101,12 @@ class Chatroom extends React.Component {
               {<SearchContainer />}
             </header>
             {this.isUserSubbed()}
-            {<MessageFormContainer
-              currentChannel={this.props.currentChannel}/>}
-            }
           </div>
-
         </div>
       </div>
     );
-    }
+  }
+
 }
 
 export default Chatroom;
