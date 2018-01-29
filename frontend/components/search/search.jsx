@@ -1,6 +1,8 @@
 import React from 'react';
+import SearchIndexItem from './search_index_item';
+
 class Search extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -11,7 +13,7 @@ class Search extends React.Component {
   // filter through all channels and if the channel title includes the letter
   // set currentlyDisplayed to filtered and update state
   // searchTerm would update to event.target.value and render to the screen
-  filteredChannels(e) {
+  filterChannels(e) {
     let newlyDisplayed = this.props.channels.filter(channel => (
       channel.title.includes(e.target.value)
     ));
@@ -22,29 +24,47 @@ class Search extends React.Component {
   update(e) {
     this.setState({
       searchTerm: e.target.value,
-      currentlyDisplayed: this.filteredChannels(e)
+      currentlyDisplayed: this.filterChannels(e)
     });
-
-    console.log(this.state);
   }
-  // search list item component, needs to be added
-  // have a dropdown that shows only if searchTerm is not ""
-  render () {
+
+  hideEmptySearch() {
+    const dropdown = document.getElementById('search_dropdown');
+    if (dropdown && (this.state.searchTerm.length === 0 ||
+      this.state.currentlyDisplayed.length === 0)) {
+      return (
+        <div>No channels found.</div>
+      );
+    // } else if (dropdown && this.state.currentlyDisplayed.length === 0) {
+    //   return (
+    //     <div>No results.</div>
+    //   );
+    } else if (dropdown) {
+      return (
+        <ul className="search_dropdown_list">
+          {this.state.currentlyDisplayed.map(channel => {
+            return(
+              <SearchIndexItem
+                key={channel.id}
+                channel={channel} />
+            );
+          })}
+        </ul>
+      );
+    }
+  }
+
+  render() {
     return (
-      <div>
+      <div className="search_container">
         <input type='text'
           value={this.state.searchTerm}
           onChange={(e) => this.update(e)}
           placeholder="Search channels"
-          className="search_box"/>
-        <div>
-          <ul>
-            {this.state.currentlyDisplayed.map(channel => {
-              return(
-                <li>{channel.title}</li>
-              );
-            })}
-          </ul>
+          className="search_input"/>
+
+        <div id="search_dropdown" className="search_dropdown">
+          {this.hideEmptySearch()}
         </div>
       </div>
     );

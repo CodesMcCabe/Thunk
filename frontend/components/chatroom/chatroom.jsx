@@ -12,6 +12,7 @@ class Chatroom extends React.Component {
     super(props);
 
     this.scrollLastMessage = this.scrollLastMessage.bind(this);
+    this.isUserSubbed = this.isUserSubbed.bind(this);
   }
 
   componentWillReceiveProps (nextProps) {
@@ -30,7 +31,31 @@ class Chatroom extends React.Component {
   }
 
   scrollLastMessage () {
-    document.getElementById('chat_scroll').scrollTop = 9999999;
+    const chat = document.getElementById('chat_scroll');
+    if (chat) {
+      chat.scrollTop = 9999999;
+    }
+  }
+
+  isUserSubbed() {
+    const currentUserSubs = this.props.currentUser.channelSubs;
+    if (this.props.currentChannel &&
+      currentUserSubs.includes(this.props.currentChannel.id)) {
+      return (
+        <div id="chat_scroll" className="chatlog_container">
+          <ul className="chatlog">
+            {this.props.messages.map(message => {
+              return (
+                <MessageIndexItem
+                  key={message.id}
+                  message={message}
+                  user={this.props.users[message.user_id]}/>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -56,20 +81,10 @@ class Chatroom extends React.Component {
               </div>
               {<SearchContainer />}
             </header>
-            <div id="chat_scroll" className="chatlog_container">
-              <ul className="chatlog">
-                {this.props.messages.map(message => {
-                    return (
-                      <MessageIndexItem
-                        key={message.id}
-                        message={message}
-                        user={this.props.users[message.user_id]}/>
-                    );
-                })}
-              </ul>
-            </div>
-              {<MessageFormContainer
-                currentChannel={this.props.currentChannel}/>}
+            {this.isUserSubbed()}
+            {<MessageFormContainer
+              currentChannel={this.props.currentChannel}/>}
+            }
           </div>
 
         </div>

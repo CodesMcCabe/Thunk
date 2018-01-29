@@ -6,7 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     currentMessage: '',
     currentUser: state.session.currentUser,
-    currentChannel: ownProps.currentChannel
+    currentChannel: ownProps.currentChannel,
   });
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, NavLink, Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Modal from 'react-modal';
 import ChannelModalContainer from '../modal/channel_modal_container';
 
