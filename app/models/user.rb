@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
 
 
-  has_many :channel_subscriptions
+  has_many :channel_subscriptions, dependent: :destroy
 
   has_many :channels,
   through: :channel_subscriptions,

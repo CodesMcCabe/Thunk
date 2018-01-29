@@ -18,10 +18,15 @@ class Api::ChannelsController < ApplicationController
 
   def destroy
     @channel = Channel.find_by(id: params[:id])
-    @channel.destroy if current_user.id == @channel.admin_id
+    @channel_sub = current_user.channel_subscriptions.find_by(channel_id: @channel.id)
+    if current_user.id == @channel.admin_id
+      @channel.destroy
+    else
+      @channel_sub.destroy
+    end
     render json: {}
   end
-  
+
   def update
     @channel = Channel.find_by(id: params[:channelId])
     payload = {channel_id: params[:channelId], user_id: current_user.id}
