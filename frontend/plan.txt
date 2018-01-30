@@ -1,0 +1,16 @@
+DMs
+- dm actions [DONE]
+
+- dm ajax calls [DONE]
+
+- update message model validations and db to take a dm_id
+
+- update state to take dms
+
+- invitations logic
+
+- dm json files
+
+- update broadcast job and related AC methods to take in either a channel_id or dm_id
+
+- dm container and jsx

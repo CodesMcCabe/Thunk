@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110010501) do
+ActiveRecord::Schema.define(version: 20180130001220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 20180110010501) do
 
   create_table "chatrooms", force: :cascade do |t|
     t.string "topic", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "direct_message_subs", force: :cascade do |t|
+    t.integer "direct_message_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["direct_message_id", "user_id"], name: "index_direct_message_subs_on_direct_message_id_and_user_id", unique: true
+    t.index ["user_id"], name: "index_direct_message_subs_on_user_id"
+  end
+
+  create_table "direct_messages", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

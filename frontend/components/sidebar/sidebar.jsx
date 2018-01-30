@@ -3,6 +3,8 @@ import ChannelIndexContainer from '../channel/channel_index_container';
 import { withRouter, Route } from 'react-router-dom';
 import Modal from 'react-modal';
 import ChannelModalContainer from '../modal/channel_modal_container';
+// import DirectMessageIndexContainer from
+//   '../direct_message/direct_message_container';
 
 class Sidebar extends React.Component {
 
@@ -25,9 +27,7 @@ class Sidebar extends React.Component {
         <button className="logout_button"
           onClick={ this.props.logout }>Log out</button>
       </div>
-
       <ChannelIndexContainer/>
-
     </div>
     );
   }
