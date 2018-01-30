@@ -7,7 +7,6 @@ import ChannelModalContainer from '../modal/channel_modal_container';
 //   '../direct_message/direct_message_container';
 
 class Sidebar extends React.Component {
-
   render () {
     let currentChannelTitle;
     if (!this.props.currentChannelTitle) {

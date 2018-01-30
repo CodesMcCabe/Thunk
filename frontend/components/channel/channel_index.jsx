@@ -57,6 +57,28 @@ class ChannelIndex extends React.Component {
             })}
           </ul>
         </div>
+        <div className="channel_header">
+          <div className="ch_header_top">Direct Messages</div>
+        </div>
+        <div className="channels">
+          <ul className="channel_list">
+            {this.props.directMessages.map(directMessage => {
+              return (
+                  <li id="focus_channel"
+                    className="li_list_item" key={directMessage.id}>
+                    <NavLink className="channel_list_item"
+                      to={`/channels/${directMessage.id}`}>
+                      <div className="channel_hash"># </div>
+                      <div className="channel_title">{directMessage.title}</div>
+                      <div className="channel_header_inner">
+                        {this.deleteButton(directMessage)}
+                      </div>
+                    </NavLink>
+                  </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     );
   }

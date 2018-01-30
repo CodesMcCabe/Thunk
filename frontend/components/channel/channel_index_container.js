@@ -5,19 +5,21 @@ import { createChannel, deleteChannel } from '../../actions/channel_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let channels = [];
+  let directMessages = [];
 
   if(Object.values(state.channels).length > 0) {
-    channels = state.session.currentUser.channelSubs.map(channelId => {
-      return (
-        state.channels[channelId]
-      );
+    state.session.currentUser.channelSubs.forEach(channelId => {
+      if (state.channels[channelId].is_dm) {
+        directMessages.push(state.channels[channelId]);
+      } else {
+        channels.push(state.channels[channelId]);
+      }
     });
-
   }
-
 
   return({
     channels: channels,
+    directMessages: directMessages
   });
 };
 

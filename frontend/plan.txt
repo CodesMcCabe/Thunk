@@ -1,16 +1,12 @@
 DMs
-- dm actions [DONE]
+- update channels migration to take a boolean for is_dm and is private. Set both to false as default [DONE]
 
-- dm ajax calls [DONE]
+- update channel params to consider new logic [DONE]
 
-- update message model validations and db to take a dm_id
+- update create/update/destroy as necessary
 
-- update state to take dms
+- update actions/ajax if necessary[DONE]
 
-- invitations logic
+- update filter of channels for regular channels
 
-- dm json files
-
-- update broadcast job and related AC methods to take in either a channel_id or dm_id
-
-- dm container and jsx
+- create DM components
