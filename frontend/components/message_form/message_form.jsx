@@ -49,7 +49,13 @@ class MessageForm extends React.Component {
     received: (data) => {
       switch (data.action) {
         case 'receiveMessage':
-          this.props.receiveMessage(data.message);
+          if (!this.props.currentUser.channelSubs.includes(
+            data.message.channel_id)) {
+              this.props.fetchChannels();
+            }
+            window.setTimeout(() => {
+              this.props.receiveMessage(data.message);
+            }, 2000);
         break;
       }
     },

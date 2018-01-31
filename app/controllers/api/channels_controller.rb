@@ -24,7 +24,8 @@ class Api::ChannelsController < ApplicationController
 
   def destroy
     @channel = Channel.find_by(id: params[:id])
-    @channel_sub = current_user.channel_subscriptions.find_by(channel_id: @channel.id)
+    @channel_sub = current_user.channel_subscriptions.find_by(
+      channel_id: @channel.id)
     if current_user.id == @channel.admin_id
       @channel.destroy
     else

@@ -1,6 +1,7 @@
 import { RECEIVE_CURRENT_USER,
          RECEIVE_SESSION_ERRORS } from '../actions/session_actions';
 import { RECEIVE_CHANNEL, REMOVE_CHANNEL } from '../actions/channel_actions';
+import { RECEIVE_MESSAGE } from '../actions/message_actions';
 
 
 const initialState = {
@@ -23,6 +24,12 @@ const sessionReducer = (oldState = initialState, action) => {
       const index = user.channelSubs.indexOf(action.channelId);
       user.channelSubs.splice(index, 1);
       return Object.assign({}, oldState, {currentUser: user});
+    case RECEIVE_MESSAGE:
+      user = oldState.currentUser;
+      if (!user.channelSubs.includes(action.message.channel_id)) {
+        user.channelSubs.push(action.message.channel_id);
+        return Object.assign({}, oldState, {currentUser: user});
+      }
     default:
       return oldState;
   }

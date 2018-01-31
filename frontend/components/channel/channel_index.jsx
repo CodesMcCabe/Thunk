@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import Modal from 'react-modal';
 import ChannelModalContainer from '../modal/channel_modal_container';
 
@@ -32,6 +32,8 @@ class ChannelIndex extends React.Component {
   }
 
   render () {
+    console.log('working')
+
     return (
       <div className="sidebar_list">
         <div className="channel_header">
@@ -42,7 +44,7 @@ class ChannelIndex extends React.Component {
           <ul className="channel_list">
             {this.props.channels.map(channel => {
               return (
-                  <li id="focus_channel"
+                  <li key={channel.id} id="focus_channel"
                     className="li_list_item" key={channel.id}>
                     <NavLink className="channel_list_item"
                       to={`/channels/${channel.id}`}>
@@ -64,7 +66,7 @@ class ChannelIndex extends React.Component {
           <ul className="channel_list">
             {this.props.directMessages.map(directMessage => {
               return (
-                  <li id="focus_channel"
+                  <li key={directMessage.id} id="focus_channel"
                     className="li_list_item" key={directMessage.id}>
                     <NavLink className="channel_list_item"
                       to={`/channels/${directMessage.id}`}>

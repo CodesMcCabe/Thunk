@@ -32,5 +32,5 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
-// export default withRouter(Sidebar);
+// export default Sidebar;
+export default withRouter(Sidebar);
