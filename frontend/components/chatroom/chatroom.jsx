@@ -78,11 +78,19 @@ class Chatroom extends React.Component {
   }
 
   render() {
-    let currentChannelTitle;
+    let currentChannelTitle = "";
     if (!this.props.currentChannel) {
       currentChannelTitle = "";
-    } else {
+    } else if (!this.props.currentChannel.is_dm) {
       currentChannelTitle = this.props.currentChannel.title;
+    } else {
+      this.props.currentChannel.subscriberIds.forEach(id => {
+        if (this.props.users[id].username !== this.props.currentUser.username) {
+          return;
+        } else {
+          currentChannelTitle += (this.props.users[id].username);
+        }
+      });
     }
 
     return (

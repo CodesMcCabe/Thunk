@@ -35,7 +35,7 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find_by(id: params[:id])
     @channel_sub = current_user.channel_subscriptions.find_by(
       channel_id: @channel.id)
-    if current_user.id == @channel.admin_id
+    if current_user.id == @channel.admin_id && !@channel.is_dm
       @channel.destroy
     else
       @channel_sub.destroy
@@ -45,8 +45,11 @@ class Api::ChannelsController < ApplicationController
 
   def update
     @channel = Channel.find_by(id: params[:channelId])
-    payload = {channel_id: params[:channelId], user_id: current_user.id}
-    ChannelSubscription.create(payload)
+    if !@channel.is_dm
+      payload = {channel_id: params[:channelId], user_id: current_user.id}
+      ChannelSubscription.create(payload)
+    else
+    end
     render 'api/channels/show'
   end
 

@@ -6,4 +6,5 @@ class MessageBroadcastJob < ApplicationJob
       action: 'receiveMessage',
       message: message)
   end
+
 end

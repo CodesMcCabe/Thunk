@@ -75,7 +75,17 @@ class ChannelIndex extends React.Component {
                     <NavLink className="channel_list_item"
                       to={`/channels/${directMessage.id}`}>
                       <div className="channel_hash"># </div>
-                      <div className="channel_title">{directMessage.title}</div>
+                      <div className="channel_title">
+                        {directMessage.subscriberIds.map(id => {
+                          if (this.props.users[id].username === this.props.currentUser.username) {
+                            return "";
+                          } else {
+                            return (
+                              this.props.users[id].username
+                            );
+                          }
+                        })}
+                      </div>
                       <div className="channel_header_inner">
                         {this.deleteButton(directMessage)}
                       </div>

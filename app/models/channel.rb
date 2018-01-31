@@ -21,7 +21,22 @@ class Channel < ApplicationRecord
 
   has_many :channel_subscriptions
 
-  has_many :subscribers,
+  has_many :users,
   through: :channel_subscriptions
+
+  # def messages_id
+  #   messages.map do |message|
+  #     message.id
+  #   end
+  # end
+  after_create_commit do
+    ChannelBroadcastJob.perform_later(self) if !self.is_dm
+  end
+
+  def subscriber_ids
+    subscribers.map do |sub|
+      sub.id
+    end
+  end
 
 end

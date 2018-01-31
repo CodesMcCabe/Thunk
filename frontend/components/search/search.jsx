@@ -38,11 +38,11 @@ class Search extends React.Component {
     const dropdown = document.getElementById('search_dropdown');
     if (dropdown && (this.state.searchTerm.length === 0)) {
       return (
-        <div>Search for channels or friends</div>
+        <div className="search_default">Search for channels or friends</div>
       );
     } else if (dropdown && this.state.currentlyDisplayed.length === 0) {
       return (
-        <div>No results.</div>
+        <div className="search_default">No results.</div>
       );
     } else if (dropdown) {
       return (
