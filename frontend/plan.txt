@@ -1,12 +1,5 @@
 DMs
-- update channels migration to take a boolean for is_dm and is private. Set both to false as default [DONE]
-
-- update channel params to consider new logic [DONE]
-
-- update create/update/destroy as necessary
-
-- update actions/ajax if necessary[DONE]
-
-- update filter of channels for regular channels
-
-- create DM components
+- fetchChannel action
+- channel reducer error
+- keys being duped
+- channels not deleted from overall channels

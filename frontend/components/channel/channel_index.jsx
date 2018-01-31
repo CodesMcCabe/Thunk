@@ -6,6 +6,12 @@ import ChannelModalContainer from '../modal/channel_modal_container';
 // ADD MODAL FOR CHANNELS
 // SEARCH FOR ALL CHANNELS IN ORDER TO SUB
 class ChannelIndex extends React.Component {
+  // deleteChannel(channel) {
+  //   this.props.deleteChannel(channel.id);
+  //   return (
+  //     <Redirect to={`/channels/${this.props.currentUser.channelSubs[0]}`} />
+  //   );
+  // }
 
   deleteButton (channel) {
     if (channel.title === 'default') {
@@ -32,8 +38,6 @@ class ChannelIndex extends React.Component {
   }
 
   render () {
-    console.log('working')
-
     return (
       <div className="sidebar_list">
         <div className="channel_header">
@@ -45,7 +49,7 @@ class ChannelIndex extends React.Component {
             {this.props.channels.map(channel => {
               return (
                   <li key={channel.id} id="focus_channel"
-                    className="li_list_item" key={channel.id}>
+                    className="li_list_item" >
                     <NavLink className="channel_list_item"
                       to={`/channels/${channel.id}`}>
                       <div className="channel_hash"># </div>
@@ -66,7 +70,7 @@ class ChannelIndex extends React.Component {
           <ul className="channel_list">
             {this.props.directMessages.map(directMessage => {
               return (
-                  <li key={directMessage.id} id="focus_channel"
+                  <li id="focus_channel"
                     className="li_list_item" key={directMessage.id}>
                     <NavLink className="channel_list_item"
                       to={`/channels/${directMessage.id}`}>

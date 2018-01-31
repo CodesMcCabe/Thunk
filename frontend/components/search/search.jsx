@@ -14,12 +14,14 @@ class Search extends React.Component {
   // set currentlyDisplayed to filtered and update state
   // searchTerm would update to event.target.value and render to the screen
   filterChannels(e) {
+
     let channels = this.props.channels.filter(channel => (
-      channel.title.includes(e.target.value) && channel.is_dm === false
+      channel.title.toLowerCase().includes(e.target.value.toLowerCase()) &&
+      channel.is_dm === false
     ));
 
     let users = this.props.users.filter(user => (
-      user.username.includes(e.target.value)
+      user.username.toLowerCase().includes(e.target.value.toLowerCase())
     ));
 
     return channels.concat(users);
@@ -34,15 +36,14 @@ class Search extends React.Component {
 
   hideEmptySearch() {
     const dropdown = document.getElementById('search_dropdown');
-    if (dropdown && (this.state.searchTerm.length === 0 ||
-      this.state.currentlyDisplayed.length === 0)) {
+    if (dropdown && (this.state.searchTerm.length === 0)) {
       return (
-        <div>No channels found.</div>
+        <div>Search for channels or friends</div>
       );
-    // } else if (dropdown && this.state.currentlyDisplayed.length === 0) {
-    //   return (
-    //     <div>No results.</div>
-    //   );
+    } else if (dropdown && this.state.currentlyDisplayed.length === 0) {
+      return (
+        <div>No results.</div>
+      );
     } else if (dropdown) {
       return (
         <ul className="search_dropdown_list">
@@ -66,7 +67,7 @@ class Search extends React.Component {
         <input type='text'
           value={this.state.searchTerm}
           onChange={(e) => this.update(e)}
-          placeholder="Search channels"
+          placeholder=' &#128269; Search'
           className="search_input"/>
 
         <div id="search_dropdown" className="search_dropdown">

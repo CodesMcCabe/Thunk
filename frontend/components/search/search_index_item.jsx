@@ -8,7 +8,6 @@ const SearchIndexItem = ({channel, createChannel, currentUser, history}) => {
     e.preventDefault();
     let payload = {channel: {is_dm: true, title: `${channel.username}`,
       admin_id: currentUser.id, invitations: [channel.id]}};
-
     createChannel(payload).then(directMessage =>
       history.push(`/channels/${directMessage.id}`)
     );
@@ -19,7 +18,7 @@ const SearchIndexItem = ({channel, createChannel, currentUser, history}) => {
       <li className="search_list_item">
         <NavLink to={`/channels/${channel.id}`}
           className="search_dropdown_link">
-          {channel.title}
+          # {channel.title}
         </NavLink>
       </li>
     );

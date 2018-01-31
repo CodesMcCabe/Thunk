@@ -7,6 +7,15 @@ export const fetchChannels = () => {
   );
 };
 
+export const fetchChannel = (channelId) => {
+  return(
+    $.ajax({
+      method: 'get',
+      url: `api/channels/${channelId}`
+    })
+  );
+};
+
 export const createChannel = (channel) => {
   return (
     $.ajax({

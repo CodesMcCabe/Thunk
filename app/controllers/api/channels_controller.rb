@@ -18,6 +18,15 @@ class Api::ChannelsController < ApplicationController
       ChannelSubscription.create(payload)
       render 'api/channels/show'
     else
+      render json: ["Channel name above 22 characters"], status: 401
+    end
+  end
+
+  def show
+    @channel = Channel.find_by(id: params[:id])
+    if @channel
+      render 'api/channels/show'
+    else
       render json: {}
     end
   end

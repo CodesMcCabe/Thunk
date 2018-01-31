@@ -19,7 +19,8 @@ const mapStateToProps = (state, ownProps) => {
 
   return({
     channels: channels,
-    directMessages: directMessages
+    directMessages: directMessages,
+    currentUser: state.session.currentUser
   });
 };
 

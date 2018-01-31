@@ -10,7 +10,8 @@
 #
 
 class Channel < ApplicationRecord
-  validates :title, :admin_id, presence: true
+  validates :admin_id, presence: true
+  validates :title, presence: true, length: {maximum: 22}
 
   belongs_to :admin,
   foreign_key: :admin_id,
