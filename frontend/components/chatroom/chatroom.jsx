@@ -46,8 +46,8 @@ class Chatroom extends React.Component {
 
   isUserSubbed() {
     const currentUserSubs = this.props.currentUser.channelSubs;
-    if (this.props.currentChannel &&
-      currentUserSubs.includes(this.props.currentChannel.id)) {
+    if ((this.props.currentChannel &&
+      currentUserSubs.includes(this.props.currentChannel.id))) {
       return (
         <div className="chat_container_change">
           <div id="chat_scroll" className="chatlog_container">

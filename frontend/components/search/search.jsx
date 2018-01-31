@@ -14,11 +14,15 @@ class Search extends React.Component {
   // set currentlyDisplayed to filtered and update state
   // searchTerm would update to event.target.value and render to the screen
   filterChannels(e) {
-    let newlyDisplayed = this.props.channels.filter(channel => (
-      channel.title.includes(e.target.value)
+    let channels = this.props.channels.filter(channel => (
+      channel.title.includes(e.target.value) && channel.is_dm === false
     ));
 
-    return newlyDisplayed;
+    let users = this.props.users.filter(user => (
+      user.username.includes(e.target.value)
+    ));
+
+    return channels.concat(users);
   }
 
   update(e) {
@@ -42,11 +46,13 @@ class Search extends React.Component {
     } else if (dropdown) {
       return (
         <ul className="search_dropdown_list">
-          {this.state.currentlyDisplayed.map(channel => {
+          {this.state.currentlyDisplayed.map((channel, idx) => {
             return(
               <SearchIndexItem
-                key={channel.id}
-                channel={channel} />
+                key={idx}
+                channel={channel}
+                createChannel={this.props.createChannel}
+                currentUser={this.props.currentUser}/>
             );
           })}
         </ul>

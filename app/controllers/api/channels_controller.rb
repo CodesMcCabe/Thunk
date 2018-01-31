@@ -7,15 +7,19 @@ class Api::ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(channel_params)
-    # if @channel[:is_dm?]
-      if @channel.save
-        payload = {channel_id: @channel.id, user_id: @channel.admin_id}
-        ChannelSubscription.create(payload)
-        render 'api/channels/show'
-      else
-        render json: {}
+    if @channel.save
+      if @channel.is_dm
+          params[:channel][:invitations].each do |user|
+          payload = {channel_id: @channel.id, user_id: user}
+          ChannelSubscription.create(payload)
+        end
       end
-    # end
+      payload = {channel_id: @channel.id, user_id: @channel.admin_id}
+      ChannelSubscription.create(payload)
+      render 'api/channels/show'
+    else
+      render json: {}
+    end
   end
 
   def destroy
@@ -40,7 +44,7 @@ class Api::ChannelsController < ApplicationController
   private
 
   def channel_params
-    params.require(:channel).permit(:title, :admin_id, :is_dm?,
-      :is_private?)
+    params.require(:channel).permit(:title, :admin_id, :is_dm,
+      :is_private)
   end
 end
