@@ -34,7 +34,8 @@ class ChannelModal extends React.Component {
 
 
   closeModal() {
-    this.setState({ modalOpen: false });
+    this.setState({ modalOpen: false, title: "", purpose: "",
+      invites: ""});
   }
 
   openModal() {

@@ -17,7 +17,10 @@ const userReducer = (oldState = {}, action) => {
       }
     case RECEIVE_CHANNEL:
       user = oldState[action.channel.admin_id];
-      user.channelSubs.push(action.channel.id);
+      let temp = user.channelSubs;
+      let set = new Set(temp);
+      set.add(action.channel.id);
+      user.channelSubs = Array.from(set);
       return Object.assign({}, oldState, {[user.id]: user});
       // WILL HAVE TO UPDATE FOR ALL USERS WHEN AVAILABLE
     // case REMOVE_CHANNEL:

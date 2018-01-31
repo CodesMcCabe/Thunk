@@ -3,3 +3,7 @@ DMs
 - channel reducer error
 - keys being duped
 - channels not deleted from overall channels
+
+- issues
+  - real time search updating is throwing errors
+  - need to redirect to default channel when a channel is deleted

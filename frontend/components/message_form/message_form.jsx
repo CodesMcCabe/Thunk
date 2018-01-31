@@ -58,9 +58,9 @@ class MessageForm extends React.Component {
             }
         break;
         case 'receiveChannel':
-          if (!data.channel.is_dm) {
-            this.props.receiveChannel(data.channel);
-          }
+          // if (!data.channel.is_dm) {
+          //   this.props.receiveChannel(data.channel);
+          // }
         break;
       }
     },
