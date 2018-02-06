@@ -26,7 +26,8 @@ class Sidebar extends React.Component {
         <button className="logout_button"
           onClick={ this.props.logout }>Log out</button>
       </div>
-      <ChannelIndexContainer/>
+      <ChannelIndexContainer
+        defaultChannel={this.props.currentUser.channelSubs[0]}/>
     </div>
     );
   }

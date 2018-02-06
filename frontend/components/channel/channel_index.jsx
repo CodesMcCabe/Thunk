@@ -6,12 +6,6 @@ import ChannelModalContainer from '../modal/channel_modal_container';
 // ADD MODAL FOR CHANNELS
 // SEARCH FOR ALL CHANNELS IN ORDER TO SUB
 class ChannelIndex extends React.Component {
-  // deleteChannel(channel) {
-  //   this.props.deleteChannel(channel.id);
-  //   return (
-  //     <Redirect to={`/channels/${this.props.currentUser.channelSubs[0]}`} />
-  //   );
-  // }
 
   deleteButton (channel) {
     if (channel.title === 'default') {
@@ -100,4 +94,4 @@ class ChannelIndex extends React.Component {
   }
 }
 
-export default ChannelIndex;
+export default withRouter(ChannelIndex);

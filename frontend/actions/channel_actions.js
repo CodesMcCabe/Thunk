@@ -30,14 +30,17 @@ export const createChannel = (channel) => dispatch => {
 export const deleteChannel = (channelId) => dispatch => {
   return(
     ChannelApiUtil.deleteChannel(channelId).then(() =>
-      dispatch(removeChannel(channelId)))
+      dispatch(removeChannel(channelId))
+    )
   );
 };
 
 export const subscribeChannel = (channelId) => dispatch => {
   return(
-    ChannelApiUtil.subscribeChannel(channelId).then(channel =>
-      dispatch(receiveChannel(channel)))
+    ChannelApiUtil.subscribeChannel(channelId).then(channel => {
+      dispatch(receiveChannel(channel));
+      }
+    )
   );
 };
 

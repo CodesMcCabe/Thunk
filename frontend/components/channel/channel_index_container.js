@@ -25,10 +25,13 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return ({
     createChannel: (channel) => dispatch(createChannel(channel)),
-    deleteChannel: (channelId) => () => dispatch(deleteChannel(channelId))
+    deleteChannel: (channelId) => () => dispatch(deleteChannel(channelId)
+      ).then(() => {
+        ownProps.history.push(`${ownProps.defaultChannel}`);
+      })
   });
 };
 
