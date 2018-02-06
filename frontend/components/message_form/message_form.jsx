@@ -51,7 +51,7 @@ class MessageForm extends React.Component {
         case 'receiveMessage':
           if (!this.props.currentUser.channelSubs.includes(
             data.message.channel_id)) {
-              this.props.fetchChannel(data.message.channel_id).then(() =>
+              this.props.subscribeChannel(data.message.channel_id).then(() =>
               this.props.receiveMessage(data.message));
             } else {
               this.props.receiveMessage(data.message);

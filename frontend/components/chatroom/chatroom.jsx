@@ -68,13 +68,15 @@ class Chatroom extends React.Component {
       );
     } else if (this.props.currentChannel){
       return (
-        <footer className="join_channel_footer">
-          <button onClick={this.subscribeToChannel}>Join Channel</button>
-        </footer>
+        <div className="chat_container_change">
+          <div id="chat_scroll" className="chatlog_container"></div>
+          <footer className="join_channel_footer">
+            <button className="join_channel_button"
+              onClick={this.subscribeToChannel}>Join Channel</button>
+          </footer>
+        </div>
       );
     }
-    // BUTTON TO HIT CHANNELS UPDATE CONTROLLER ACTION
-    // SHOULD UPDATE STATE UPON RECEIPT OF DATA
   }
 
   render() {

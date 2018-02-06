@@ -35,6 +35,8 @@ class Api::ChannelsController < ApplicationController
       channel_id: @channel.id)
     if current_user.id == @channel.admin_id && !@channel.is_dm
       @channel.destroy
+    elsif @channel.channel_subscriptions.length == 1
+      @channel.destroy
     else
       @channel_sub.destroy
     end
