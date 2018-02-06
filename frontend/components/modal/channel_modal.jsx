@@ -83,7 +83,6 @@ class ChannelModal extends React.Component {
           beforeClose: 'channel_modal_before-close'
           }}>
 
-
           <div className="modal_mid_container">
             <h1 className="modal_header">Create a Channel</h1>
             <div className="modal_notes">Channels are where your members communicate.

@@ -36,7 +36,7 @@ class ChannelIndex extends React.Component {
       <div className="sidebar_list">
         <div className="channel_header">
           <div className="ch_header_top">Channels</div>
-          <ChannelModalContainer />
+          <ChannelModalContainer isDm="false"/>
         </div>
         <div className="channels">
           <ul className="channel_list">
